@@ -40,6 +40,9 @@ body {
 .app__header,
 .app__footer {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* sube o baja este valor */
 }
 
 .estado {
@@ -50,8 +53,9 @@ body {
 
 .titulo {
   margin: 0.4rem 0 0;
-  font-size: 1.4rem;
+  font-size: 2.0rem;
   letter-spacing: 0.01em;
+  color : var(--primary);
 }
 
 .tarjeta {
