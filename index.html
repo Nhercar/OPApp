@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz MVP</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <header class="app__header">
+        <p id="estado" class="estado">Cargando preguntas...</p>
+        <h1 class="titulo">Quiz App MVP</h1>
+      </header>
+
+      <section id="inicio" class="tarjeta inicio" aria-label="Pantalla de inicio">
+        <h2 class="pregunta">Listo para empezar el test</h2>
+        <p id="inicioTexto" class="inicio__texto">Esta es la pantalla inicial. Desde aqui podras lanzar el quiz y luego sumar nuevas funciones.</p>
+        <button id="iniciarBtn" class="accion-btn" type="button">Iniciar test</button>
+      </section>
+
+      <section id="quiz" class="tarjeta" aria-label="Pregunta actual" hidden>
+        <h2 id="pregunta" class="pregunta">Preparando quiz...</h2>
+        <div id="preguntaAccion" class="pregunta-accion" hidden></div>
+        <div id="opciones" class="opciones" role="group" aria-label="Opciones de respuesta"></div>
+        <div class="quiz-nav">
+          <button id="siguienteBtn" class="accion-btn quiz-next" type="button" hidden>Saltar pregunta actual</button>
+        </div>
+      </section>
+
+      <footer id="resultado" class="app__footer" hidden>
+        <p id="puntuacion" class="puntuacion">Puntuación: 0</p>
+        <section id="resumen" class="resumen" hidden>
+          <h3 class="resumen__titulo">Resumen por pregunta</h3>
+          <div id="resumenBotones" class="resumen-botones" aria-label="Resumen de aciertos y fallos"></div>
+        </section>
+      </footer>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

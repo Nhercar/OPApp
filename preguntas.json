@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "texto": "¿Qué método de array devuelve un nuevo array con los elementos que cumplen una condición?",
+    "opciones": ["map()", "filter()", "reduce()", "forEach()"],
+    "correcta": 1
+  },
+  {
+    "id": 2,
+    "texto": "¿Cuál de estas opciones declara una constante en JavaScript moderno?",
+    "opciones": ["var", "let", "const", "static"],
+    "correcta": 2
+  },
+  {
+    "id": 3,
+    "texto": "¿Qué API del navegador permite solicitar datos JSON desde un archivo o endpoint?",
+    "opciones": ["localStorage", "fetch", "setTimeout", "querySelector"],
+    "correcta": 1
+  }
+]
