@@ -1,0 +1,78 @@
+{
+  "name": "Test OP Enfermería 2026",
+  "short_name": "Test OP",
+  "description": "Aplicación de test interactivo para preparar el examen de Enfermería",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0b6bcb",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230b6bcb' width='192' height='192'/><text x='96' y='120' font-size='80' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>OP</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230b6bcb' width='192' height='192'/><text x='96' y='120' font-size='80' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>OP</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%230b6bcb' width='512' height='512'/><text x='256' y='350' font-size='220' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>OP</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%23f5f5f5' width='540' height='720'/><rect fill='%230b6bcb' width='540' height='80'/><text x='270' y='55' font-size='28' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>Test OP Enfermería</text><text x='270' y='200' font-size='18' fill='%23333' text-anchor='middle' font-family='Arial'>Pregunta 1 de 3</text><rect x='20' y='250' width='500' height='350' rx='8' fill='white' stroke='%23ddd' stroke-width='1'/><text x='30' y='270' font-size='14' fill='%23666' font-family='Arial'>¿Cuál es la respuesta correcta?</text><rect x='30' y='320' width='480' height='50' rx='4' fill='%23e9f2ff' stroke='%230b6bcb' stroke-width='2'/><text x='70' y='355' font-size='16' fill='%23333' font-family='Arial'>A) Primera opción</text><rect x='30' y='390' width='480' height='50' rx='4' fill='white' stroke='%23ddd' stroke-width='1'/><text x='70' y='425' font-size='16' fill='%23666' font-family='Arial'>B) Segunda opción</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Iniciar Test",
+      "short_name": "Test",
+      "description": "Inicia un nuevo test de preguntas",
+      "url": "/?action=start",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%230b6bcb' width='96' height='96'/><text x='48' y='65' font-size='40' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>T</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Repasar Fallos",
+      "short_name": "Fallos",
+      "description": "Repasa las preguntas que fallaste",
+      "url": "/?action=review",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23f39c12' width='96' height='96'/><text x='48' y='65' font-size='40' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>R</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
