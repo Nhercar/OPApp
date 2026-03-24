@@ -1,20 +1,222 @@
 [
-  {
-    "id": 1,
-    "texto": "¿Qué método de array devuelve un nuevo array con los elementos que cumplen una condición?",
-    "opciones": ["map()", "filter()", "reduce()", "forEach()"],
-    "correcta": 1
-  },
-  {
-    "id": 2,
-    "texto": "¿Cuál de estas opciones declara una constante en JavaScript moderno?",
-    "opciones": ["var", "let", "const", "static"],
-    "correcta": 2
-  },
-  {
-    "id": 3,
-    "texto": "¿Qué API del navegador permite solicitar datos JSON desde un archivo o endpoint?",
-    "opciones": ["localStorage", "fetch", "setTimeout", "querySelector"],
-    "correcta": 1
-  }
+    {
+        "id": 1,
+        "texto": "La definición de enfermería de Virginia Henderson, publicada por el International Council of Nurses (ICN) en 1961 es:",
+        "opciones": [
+            "La función específica de la enfermera es ayudar a la persona, enferma o sana, a la realización de actividades que contribuyan a la salud o a su rehabilitación e inserción (o a una muerte tranquila) que realizaría sin ayuda si tuviera la fuerza, la voluntad o los conocimientos necesarios, y a hacerlo de tal manera que la ayude a ganar la independencia lo más rápidamente posible.",
+            "La enfermería es una profesión esencial del sistema de salud dedicada al cuidado integral de personas, familias y comunidades, promoviendo la salud, previniendo enfermedades y asistiendo en la recuperación, abarcando aspectos físicos, mentales y sociales desde el nacimiento hasta la muerte, con un enfoque colaborativo y centrado en las personas que intervienen en el proceso.",
+            "La función específica de la enfermera es ayudar a la persona, enferma o sana, a la realización de actividades que contribuyan a la salud o a su recuperación (o a una muerte tranquila) que realizaría sin ayuda si tuviera la fuerza, la voluntad o los conocimientos necesarios, y a hacerlo de tal manera que la ayude a ganar la independencia lo más rápidamente posible.",
+            "La enfermería es una profesión esencial del sistema de salud dedicada al cuidado integral de personas, familias y comunidades, promoviendo la salud, previniendo enfermedades y asistiendo en la recuperación, abarcando aspectos físicos, mentales y sociales desde el nacimiento hasta la muerte, con un enfoque colaborativo y centrado en el paciente."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 2,
+        "texto": "La teoría de Florence Nightingale se centró en el entorno, aun cuando ella en sus escritos prefirió el término alrededores. Definió y describió los conceptos de:",
+        "opciones": [
+            "Ventilación, calidez, luz, dieta, limpieza y ruido.",
+            "Ventilación, calidez, luz, dieta, limpieza y descanso.",
+            "Ventilación, humores, luz, dieta, limpieza y descanso.",
+            "Ventilación, calidez, efluvios, alimentación, limpieza y ruido."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 3,
+        "texto": "La obra de Nightingale es clara y fácil de comprender. Abordo tres tipos de relaciones principales, SEÑALE LA INCORRECTA:",
+        "opciones": [
+            "Entorno-paciente.",
+            "Enfermera-entorno.",
+            "Entorno-Cuidados.",
+            "Enfermera-paciente."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 3,
+        "texto": "¿Cuál de los siguientes NO es un Modelo Conceptual en enfermería?",
+        "opciones": [
+            "Modelo de la conservación.",
+            "Modelo de promoción de la salud.",
+            "Modelo del sistema conductual.",
+            "Modelo de adaptación."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 5,
+        "texto": "Dorothea Orem afirmó que:",
+        "opciones": [
+            "El autocuidado son las actividades que las personas realizan para mantener su salud y bienestar, pero cuando estas actividades exceden la capacidad de la persona, surge una \"Disminución para mejorar la capacidad de autocuidado\" y el personal sanitario debe intervenir para suplir esa falta mediante educación y apoyo, basándose en su teoría central, el Modelo del Déficit de Autocuidado.",
+            "La enfermería pertenece a la familia de los servicios sanitarios que se organizan para prestar asistencia directa a personas con necesidades legítimas de diferentes formas de atención directa por sus estados de salud o por la naturaleza de sus necesidades de asistencia sanitaria.",
+            "El autocuidado son las actividades que las personas realizan para mantener su salud y bienestar, pero cuando estas actividades exceden la capacidad de la persona, surge un \"déficit de cuidado\" y el personal sanitario debe intervenir para suplir esa falta mediante educación y apoyo, basándose en la teoría del Modelo de insuficiencia de Autocuidado.",
+            "La enfermería pertenece a la familia de los servicios sanitarios y sociales que se organizan para prestar asistencia directa a personas con necesidades legítimas de diferentes formas de atención directa por sus estados de salud o por la naturaleza de sus necesidades de asistencia sanitaria."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 6,
+        "texto": "¿Cuál de las siguientes teorías NO forma parte de la teoría general del déficit de autocuidado?",
+        "opciones": [
+            "La teoría de autocuidado.",
+            "La teoría de procedimientos enfermeros.",
+            "La teoría del déficit de autocuidado.",
+            "La teoría del cuidado dependiente."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 7,
+        "texto": "Los requisitos de autocuidado de desarrollo (RACD) estaban separados de los requisitos de autocuidado universales en la segunda edición de Nursing: Concepts of Practice de Orem. Se identificaron tres conjuntos de RACD, señálelos:",
+        "opciones": [
+            "Provisión de condiciones que fomentan el desarrollo, Implicación en el autodesarrollo y Prevenir o vencer los efectos de las condiciones humanas y de las situaciones vitales que pueden afectar de manera negativa al desarrollo humano.",
+            "Provisión de condiciones que fomentan el desarrollo, Implicación en la adaptación a los cambios sobrevenidos y Prevenir o vencer los efectos de las condiciones humanas y de las situaciones vitales que pueden afectar de manera negativa al desarrollo humano.",
+            "Provisión de condiciones que fomentan el desarrollo, Implicación en la adaptación al entorno y Prevenir o vencer los efectos de las condiciones humanas y de las situaciones vitales que pueden afectar de manera negativa al desarrollo humano.",
+            "Provisión de condiciones que fomentan el desarrollo, Implicación en el autodesarrollo y Prevenir o vencer los efectos de las condiciones de la relación entorno-paciente-enfermera y de las situaciones vitales que pueden afectar de manera negativa al desarrollo humano."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 8,
+        "texto": "¿Cuál es una característica general de los modelos conceptuales de enfermería?",
+        "opciones": [
+            "Establecen el significado de los fenómenos de enfermería a través del análisis, el razonamiento y la presentación lógica.",
+            "Cada uno aborda los conceptos metaparadigmáticos de persona, entorno, salud y enfermería.",
+            "Contribuyeron al desarrollo del conocimiento proporcionando una directriz o una base para los posteriores desarrollos.",
+            "Reflejan métodos y enfoques científicos contemporáneos."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 9,
+        "texto": "¿Cuál de las siguientes teorías de enfermería se considera una Teoría de nivel medio en enfermería?",
+        "opciones": [
+            "Teoría de las transiciones.",
+            "Teoría de la diversidad y de la universalidad de los cuidados culturales.",
+            "Teoría del duelo disfuncional.",
+            "Teoría bioética sinfonológica."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 10,
+        "texto": "¿Qué representación gráfica creo Florence Nightingale para representar los fallecimientos innecesarios en la Guerra de Crimea?",
+        "opciones": [
+            "Diagrama de Gantt.",
+            "Diagrama de tela de araña.",
+            "Diagrama de rosa de los vientos.",
+            "Diagrama de área polar."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 11,
+        "texto": "NO es un criterio para el desarrollo del estatus de profesional de enfermería.",
+        "opciones": [
+            "Aplica su corpus de conocimiento en servicios prácticos cruciales para el bienestar social y humano.",
+            "Aumenta constantemente el corpus de conocimiento que utiliza y mejora sus técnicas de educación y servicio mediante el uso del método científico.",
+            "Atrae a individuos con cualidades intelectuales y personales que ensalzan el servicio por encima del beneficio personal y que reconocen la ocupación que han escogido como un trabajo de por vida.",
+            "Funciona de manera interdependiente para formular estrategias profesionales y, por tanto, controlar la actividad profesional."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 12,
+        "texto": "Es considerada la madre de la enfermería psiquiátrica:",
+        "opciones": [
+            "Nancy Roper.",
+            "Hildegard E. Peplau.",
+            "Madeleine M. Leininger.",
+            "Callista Roy."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 13,
+        "texto": "Para Sor Callista Roy, la adaptación se refiere:",
+        "opciones": [
+            "Al proceso de ajustar el comportamiento, estructura o funcionamiento para acomodarse a un entorno o situación cambiante, permitiendo la estabilidad y el éxito en un ambiente determinado.",
+            "Al proceso y al resultado por los que las personas, que tienen la capacidad de pensar, actuar y de sentir, como individuos, son conscientes y escogen integrar el ser humano con su entorno.",
+            "Al proceso de ajustar el comportamiento, estructura o funcionamiento para acomodarse a un entorno o situación estable, permitiendo la supervivencia y el éxito en un ambiente determinado.",
+            "Al proceso y al resultado por los que las personas, que tienen la capacidad de pensar y de sentir, como individuos o en grupos, son conscientes y escogen integrar el ser humano con su entorno."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 13,
+        "texto": "La descripción breve de factor relacionado es:",
+        "opciones": [
+            "Evidencias o inferencias observables, que se agrupan como manifestaciones de diagnósticos, focalizados en problemas de promoción de la salud o síndromes.",
+            "Factor antecedente que aumenta la susceptibilidad de una persona, cuidador, cuidadora, familia o comunidad a una respuesta humana indeseable.",
+            "Factor antecedente que parece mostrar algún tipo de patrón de relación con la respuesta humana.",
+            "Grupos de personas que comparten características socio demográficas, antecedentes de salud/familiares, estados de crecimiento/desarrollo o exposición a ciertos eventos/experiencias que hacen que todos los individuos sean susceptibles de una respuesta humana particular."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 15,
+        "texto": "¿Cuál de las siguientes, se corresponde con una etiqueta diagnóstica nueva de la edición 2023-2026 de Diagnósticos enfermeros?",
+        "opciones": [
+            "Deterioro de la bipedestación.",
+            "Riesgo de lesión.",
+            "Salud deficiente de la comunidad.",
+            "Disposición para mejorar el patrón del sueño."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 16,
+        "texto": "¿Que engloba un diagnóstico enfermero?",
+        "opciones": [
+            "La culminación de los conocimientos disciplinares, enfermeros y el razonamiento clínico.",
+            "Las observaciones realizadas y la consiguiente anotación de signos, síntomas y comportamientos específicos.",
+            "La representación y codificación de las afecciones médicas que tratan.",
+            "Una etiqueta derivada de los resultados de una valoración exhaustiva, basada en la comprensión de los conceptos cruciales dentro de la disciplina enfermera."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 17,
+        "texto": "¿Cuál es el dominio en el que se encuentra el diagnóstico de “Hipertermia”?",
+        "opciones": [
+            "Confort.",
+            "Principios vitales.",
+            "Seguridad/protección.",
+            "Eliminación/intercambio."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 18,
+        "texto": "Una de las funciones que puede tener de la taxonomía II de NANDA I es:",
+        "opciones": [
+            "Identificar diagnósticos enfermeros fuera de su área de experiencia.",
+            "Registrar más datos.",
+            "Distinguir los datos relevantes de los irrelevantes.",
+            "Puede ayudar a los profesionales sanitarios a desarrollar el currículo de formación de enfermería."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 19,
+        "texto": "La taxonomía II de NANDA-I se organiza en:",
+        "opciones": [
+            "13 Dominios, 37 clases y 277 diagnósticos.",
+            "12 Dominios, 38 clases y 277 diagnósticos.",
+            "13 Dominios, 37 clases y 277 diagnósticos.",
+            "13 Dominios, 38 clases y 277 diagnósticos."
+        ],
+        "correcta": 3
+    },
+    {
+        "id": 20,
+        "texto": "¿En qué dominio “encaja” la clase 3; Función respiratoria?",
+        "opciones": [
+            "Actividad/reposo.",
+            "Eliminación/intercambio.",
+            "Principios vitales.",
+            "Necesidad de respirar."
+        ],
+        "correcta": 3
+    }
 ]

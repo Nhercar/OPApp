@@ -1,6 +1,7 @@
 export const QUIZ_CONFIG = {
   dataUrl: "./preguntas.json",
   transitionMs: 1500,
+  preguntasPorTest: 3,
 };
 
 export const START_READY_TEXT =

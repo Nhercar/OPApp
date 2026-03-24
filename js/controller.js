@@ -1,5 +1,5 @@
 import { ui } from "./dom.js";
-import { START_ERROR_TEXT, START_LOADING_TEXT, START_READY_TEXT } from "./config.js";
+import { QUIZ_CONFIG, START_ERROR_TEXT, START_LOADING_TEXT, START_READY_TEXT } from "./config.js";
 import { state, resetearEstadoTest } from "./state.js";
 import { cargarPreguntasDesdeFuente } from "./data.js";
 import {
@@ -23,15 +23,72 @@ import {
   actualizarBotonSiguiente,
 } from "./render.js";
 
+const mezclarPreguntas = (preguntas) => {
+  const copia = [...preguntas];
+
+  for (let i = copia.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copia[i], copia[j]] = [copia[j], copia[i]];
+  }
+
+  return copia;
+};
+
+const seleccionarPreguntasAleatorias = (banco, cantidad) => {
+  const total = Math.min(cantidad, banco.length);
+  return mezclarPreguntas(banco).slice(0, total);
+};
+
+const obtenerPreguntasFallidasDelIntento = () => {
+  const fallidasIds = new Set(
+    state.respuestas.filter((respuesta) => !respuesta.isCorrect).map((respuesta) => respuesta.questionId)
+  );
+
+  return state.preguntas.filter((pregunta) => fallidasIds.has(pregunta.id));
+};
+
+const iniciarIntentoConPreguntas = (preguntasIntento) => {
+  resetearEstadoTest();
+  state.preguntas = preguntasIntento;
+  setPuntuacion(state.puntuacion);
+  mostrarQuiz();
+
+  if (state.preguntas.length === 0) {
+    ui.opciones.innerHTML = "";
+    ui.pregunta.textContent = "No hay preguntas disponibles para este intento.";
+    ocultarBotonSiguiente();
+    setEstado("Sin preguntas");
+    return;
+  }
+
+  renderPreguntaActual();
+};
+
+const realizarPreguntasFallidas = () => {
+  const fallidas = obtenerPreguntasFallidasDelIntento();
+
+  if (fallidas.length === 0) {
+    setEstado("No hay preguntas fallidas en este intento");
+    return;
+  }
+
+  iniciarIntentoConPreguntas(fallidas);
+};
+
 const renderFinalCompleto = () => {
+  const tieneFallidas = obtenerPreguntasFallidasDelIntento().length > 0;
+
   renderFinal({
     puntuacion: state.puntuacion,
     totalPreguntas: state.preguntas.length,
   });
 
   renderBotonesAccionFinal({
-    onRestart: iniciarTest,
+    onRetryFailed: realizarPreguntasFallidas,
     onBackHome: volverAlInicio,
+    disableRetry: !tieneFallidas,
+    retryLabel: tieneFallidas ? "Realizar preguntas fallidas" : "Has acertado todas!",
+    
   });
 
   renderResumenFinal({
@@ -134,20 +191,23 @@ const revisarPreguntaPorOrden = (orderIndex) => {
     pregunta,
     registro,
     totalPreguntas: state.preguntas.length,
-    onRestart: iniciarTest,
+    onRetryFailed: realizarPreguntasFallidas,
     onBackHome: volverAlInicio,
+    disableRetry: obtenerPreguntasFallidasDelIntento().length === 0,
   });
 };
 
 const iniciarTest = () => {
-  if (!state.cargado) {
+  if (!state.cargado || state.bancoPreguntas.length === 0) {
     return;
   }
 
-  resetearEstadoTest();
-  setPuntuacion(state.puntuacion);
-  mostrarQuiz();
-  renderPreguntaActual();
+  const preguntasAleatorias = seleccionarPreguntasAleatorias(
+    state.bancoPreguntas,
+    QUIZ_CONFIG.preguntasPorTest
+  );
+
+  iniciarIntentoConPreguntas(preguntasAleatorias);
 };
 
 const volverAlInicio = () => {
@@ -168,7 +228,8 @@ const cargarPreguntas = async () => {
   try {
     const data = await cargarPreguntasDesdeFuente();
 
-    state.preguntas = data;
+    state.bancoPreguntas = data;
+    state.preguntas = [];
     state.cargado = true;
     resetearEstadoTest();
     renderInicioListo(START_READY_TEXT);

@@ -42,7 +42,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem; /* sube o baja este valor */
+  gap: 0.55rem;
 }
 
 .estado {
@@ -52,10 +52,10 @@ body {
 }
 
 .titulo {
-  margin: 0.4rem 0 0;
-  font-size: 2.0rem;
+  margin: 0;
+  font-size: 1.95rem;
   letter-spacing: 0.01em;
-  color : var(--primary);
+  color: var(--primary);
 }
 
 .tarjeta {
@@ -68,8 +68,10 @@ body {
 
 .pregunta {
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.4;
+  font-size: 1.22rem;
+  line-height: 1.45;
+  font-weight: 700;
+  color: #172430;
 }
 
 .inicio__texto {
@@ -124,7 +126,11 @@ body {
 }
 
 .quiz-nav {
-  margin-top: 0.8rem;
+  margin-top: 0.9rem;
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(to top, var(--surface) 74%, rgba(255, 255, 255, 0));
+  padding-top: 0.5rem;
 }
 
 .accion-btn.quiz-next {
@@ -152,24 +158,47 @@ background: #0857a5;
 }
 
 .opciones {
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.9rem;
+  max-height: 52vh;
+  overflow-y: auto;
+  padding-right: 0.2rem;
 }
 
 .opcion-btn {
   width: 100%;
   min-height: 56px;
-  border: 1px solid var(--border);
+  border: 1px solid #bdcad7;
   border-radius: var(--radius-md);
-  background: #fff;
+  background: #f8fafc;
   color: var(--text);
   font: inherit;
-  font-weight: 600;
-  padding: 0.8rem 0.9rem;
+  font-weight: 550;
+  line-height: 1.45;
+  padding: 0.95rem 0.95rem;
   text-align: left;
   cursor: pointer;
   transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.opcion-clave {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  background: #e7eef7;
+  color: #1f4465;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-right: 0.55rem;
+  vertical-align: top;
+}
+
+.opcion-texto {
+  display: inline;
 }
 
 .opcion-btn:hover:not(:disabled) {
@@ -278,6 +307,10 @@ background: #0857a5;
   }
 
   .pregunta {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .opciones {
+    max-height: 58vh;
   }
 }

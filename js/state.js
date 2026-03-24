@@ -1,4 +1,5 @@
 export const state = {
+  bancoPreguntas: [],
   preguntas: [],
   preguntaActual: 0,
   puntuacion: 0,

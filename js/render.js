@@ -60,14 +60,20 @@ export const revelarCorrecta = (indiceCorrecto) => {
   }
 };
 
-export const renderBotonesAccionFinal = ({ onRestart, onBackHome }) => {
+export const renderBotonesAccionFinal = ({
+  onRetryFailed,
+  onBackHome,
+  retryLabel = "Realizar preguntas fallidas",
+  disableRetry = false,
+}) => {
   limpiarAccionPregunta();
 
-  const botonReiniciar = document.createElement("button");
-  botonReiniciar.type = "button";
-  botonReiniciar.className = "accion-btn";
-  botonReiniciar.textContent = "Reiniciar test";
-  botonReiniciar.addEventListener("click", onRestart);
+  const botonReintentar = document.createElement("button");
+  botonReintentar.type = "button";
+  botonReintentar.className = "accion-btn";
+  botonReintentar.textContent = retryLabel;
+  botonReintentar.disabled = disableRetry;
+  botonReintentar.addEventListener("click", onRetryFailed);
 
   const botonInicio = document.createElement("button");
   botonInicio.type = "button";
@@ -75,9 +81,23 @@ export const renderBotonesAccionFinal = ({ onRestart, onBackHome }) => {
   botonInicio.textContent = "Volver al inicio";
   botonInicio.addEventListener("click", onBackHome);
 
-  ui.preguntaAccion.appendChild(botonReiniciar);
+  ui.preguntaAccion.appendChild(botonReintentar);
   ui.preguntaAccion.appendChild(botonInicio);
   ui.preguntaAccion.hidden = false;
+};
+
+const construirContenidoOpcion = (texto, indice) => {
+  const letra = String.fromCharCode(65 + indice);
+
+  const clave = document.createElement("span");
+  clave.className = "opcion-clave";
+  clave.textContent = letra;
+
+  const contenido = document.createElement("span");
+  contenido.className = "opcion-texto";
+  contenido.textContent = texto;
+
+  return { clave, contenido };
 };
 
 export const renderPregunta = ({ pregunta, preguntaActual, totalPreguntas, onOptionClick }) => {
@@ -93,7 +113,8 @@ export const renderPregunta = ({ pregunta, preguntaActual, totalPreguntas, onOpt
     boton.type = "button";
     boton.className = "opcion-btn";
     boton.dataset.index = String(indice);
-    boton.textContent = opcion;
+    const { clave, contenido } = construirContenidoOpcion(opcion, indice);
+    boton.append(clave, contenido);
     boton.addEventListener("click", () => onOptionClick(indice, boton));
 
     ui.opciones.appendChild(boton);
@@ -137,20 +158,22 @@ export const renderRevisionPregunta = ({
   pregunta,
   registro,
   totalPreguntas,
-  onRestart,
+  onRetryFailed,
   onBackHome,
+  disableRetry,
 }) => {
   ui.pregunta.textContent = pregunta.texto;
   ui.opciones.innerHTML = "";
   ocultarBotonSiguiente();
-  renderBotonesAccionFinal({ onRestart, onBackHome });
+  renderBotonesAccionFinal({ onRetryFailed, onBackHome, disableRetry });
   setEstado(`Completado · Revision pregunta ${registro.orderIndex + 1} de ${totalPreguntas}`);
 
   pregunta.opciones.forEach((opcion, indice) => {
     const boton = document.createElement("button");
     boton.type = "button";
     boton.className = "opcion-btn";
-    boton.textContent = opcion;
+    const { clave, contenido } = construirContenidoOpcion(opcion, indice);
+    boton.append(clave, contenido);
     boton.disabled = true;
 
     if (!registro.omitted && indice === registro.selectedOptionIndex) {
