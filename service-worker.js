@@ -1,25 +1,26 @@
 // Service Worker para PWA - Caching Strategy: Cache First, falling back to Network
-const CACHE_NAME = 'quiz-app-v1';
+const CACHE_NAME = 'quiz-app-v3';
+const BASE_PATH = '/OPApp';
 const URLS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/app.js',
-  '/style.css',
-  '/preguntas.json',
-  '/js/config.js',
-  '/js/data.js',
-  '/js/dom.js',
-  '/js/state.js',
-  '/js/controller/index.js',
-  '/js/controller/quizInitializer.js',
-  '/js/controller/quizFlow.js',
-  '/js/controller/answerValidator.js',
-  '/js/controller/storageManager.js',
-  '/js/render/index.js',
-  '/js/render/renderUI.js',
-  '/js/render/renderQuestion.js',
-  '/js/render/renderResults.js',
-  '/manifest.json'
+  BASE_PATH + '/',
+  BASE_PATH + '/index.html',
+  BASE_PATH + '/app.js',
+  BASE_PATH + '/style.css',
+  BASE_PATH + '/preguntas.json',
+  BASE_PATH + '/js/config.js',
+  BASE_PATH + '/js/data.js',
+  BASE_PATH + '/js/dom.js',
+  BASE_PATH + '/js/state.js',
+  BASE_PATH + '/js/controller/index.js',
+  BASE_PATH + '/js/controller/quizInitializer.js',
+  BASE_PATH + '/js/controller/quizFlow.js',
+  BASE_PATH + '/js/controller/answerValidator.js',
+  BASE_PATH + '/js/controller/storageManager.js',
+  BASE_PATH + '/js/render/index.js',
+  BASE_PATH + '/js/render/renderUI.js',
+  BASE_PATH + '/js/render/renderQuestion.js',
+  BASE_PATH + '/js/render/renderResults.js',
+  BASE_PATH + '/manifest.json'
 ];
 
 // Instalación del Service Worker
