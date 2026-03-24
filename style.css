@@ -80,6 +80,67 @@ body {
   line-height: 1.45;
 }
 
+.modo-test-control {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.modo-test-control__texto {
+  font-size: 0.95rem;
+  color: #2f4356;
+  text-align: left;
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  width: 50px;
+  height: 30px;
+}
+
+.switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.switch__slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #cfd6de;
+  transition: background-color 0.2s ease;
+}
+
+.switch__slider::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.switch input:checked + .switch__slider {
+  background: var(--primary);
+}
+
+.switch input:checked + .switch__slider::before {
+  transform: translateX(20px);
+}
+
+.switch input:focus-visible + .switch__slider {
+  outline: 3px solid #8bbbf0;
+  outline-offset: 2px;
+}
+
 .accion-btn {
   width: 100%;
   min-height: 52px;
@@ -231,6 +292,11 @@ background: #0857a5;
 .opcion-btn.revelada {
   border-color: var(--correcto);
   box-shadow: inset 0 0 0 1px var(--correcto);
+}
+
+.opcion-btn.seleccionada {
+  background: #e9f2ff;
+  border-color: #8cb4de;
 }
 
 .puntuacion {

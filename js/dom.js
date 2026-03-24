@@ -2,6 +2,7 @@ export const ui = {
   estado: document.querySelector("#estado"),
   inicio: document.querySelector("#inicio"),
   inicioTexto: document.querySelector("#inicioTexto"),
+  modoTestSwitch: document.querySelector("#modoTestSwitch"),
   iniciarBtn: document.querySelector("#iniciarBtn"),
   quiz: document.querySelector("#quiz"),
   resultado: document.querySelector("#resultado"),
@@ -12,4 +13,5 @@ export const ui = {
   puntuacion: document.querySelector("#puntuacion"),
   resumen: document.querySelector("#resumen"),
   resumenBotones: document.querySelector("#resumenBotones"),
+  repasarFallosBtn: document.querySelector("#repasarFallosBtn"),
 };

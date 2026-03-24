@@ -4,6 +4,7 @@ import { state, resetearEstadoTest } from "./state.js";
 import { cargarPreguntasDesdeFuente } from "./data.js";
 import {
   deshabilitarOpciones,
+  marcarSeleccionTemporal,
   mostrarQuiz,
   ocultarResumen,
   ocultarBotonSiguiente,
@@ -120,8 +121,39 @@ const registrarOmitidaActual = () => {
   };
 };
 
+const validarRespuestaModoTest = () => {
+  if (state.seleccionActual === null) {
+    registrarOmitidaActual();
+    return;
+  }
+
+  const pregunta = state.preguntas[state.preguntaActual];
+  const esCorrecta = state.seleccionActual === pregunta.correcta;
+
+  sincronizarResultadoEnStorage(pregunta.id, esCorrecta);
+
+  state.respuestas[state.preguntaActual] = {
+    questionId: pregunta.id,
+    orderIndex: state.preguntaActual,
+    selectedOptionIndex: state.seleccionActual,
+    isCorrect: esCorrecta,
+    omitted: false,
+  };
+
+  if (esCorrecta) {
+    state.puntuacion += 1;
+  }
+};
+
 const avanzarConBoton = () => {
   if (state.preguntaActual >= state.preguntas.length) {
+    return;
+  }
+
+  if (state.modoTest) {
+    validarRespuestaModoTest();
+    state.seleccionActual = null;
+    avanzarPregunta();
     return;
   }
 
@@ -134,6 +166,13 @@ const avanzarConBoton = () => {
 };
 
 const manejarRespuesta = (indiceSeleccionado, botonSeleccionado) => {
+  if (state.modoTest) {
+    state.seleccionActual = indiceSeleccionado;
+    marcarSeleccionTemporal(indiceSeleccionado);
+    actualizarBotonSiguiente(true);
+    return;
+  }
+
   // Protege la logica de eventos para que una pregunta solo se evalue una vez.
   if (state.bloqueado) {
     return;
@@ -143,6 +182,8 @@ const manejarRespuesta = (indiceSeleccionado, botonSeleccionado) => {
 
   const pregunta = state.preguntas[state.preguntaActual];
   const esCorrecta = indiceSeleccionado === pregunta.correcta;
+
+  sincronizarResultadoEnStorage(pregunta.id, esCorrecta);
 
   state.respuestas[state.preguntaActual] = {
     questionId: pregunta.id,
@@ -173,6 +214,7 @@ const renderPreguntaActual = () => {
     preguntaActual: state.preguntaActual,
     totalPreguntas: state.preguntas.length,
     onOptionClick: manejarRespuesta,
+    modoTest: state.modoTest,
   });
 };
 
@@ -202,6 +244,8 @@ const iniciarTest = () => {
     return;
   }
 
+  state.modoTest = ui.modoTestSwitch.checked;
+
   const preguntasAleatorias = seleccionarPreguntasAleatorias(
     state.bancoPreguntas,
     QUIZ_CONFIG.preguntasPorTest
@@ -210,8 +254,75 @@ const iniciarTest = () => {
   iniciarIntentoConPreguntas(preguntasAleatorias);
 };
 
+const iniciarRepasoFallos = () => {
+  if (!state.cargado || state.bancoPreguntas.length === 0) {
+    return;
+  }
+
+  const idsFalladas = new Set(leerPreguntasFalladas().map(String));
+
+  if (idsFalladas.size === 0) {
+    alert("¡Genial! No tienes ninguna pregunta fallada pendiente de repasar.");
+    return;
+  }
+
+  const preguntasFiltradas = state.bancoPreguntas.filter((pregunta) =>
+    idsFalladas.has(String(pregunta.id))
+  );
+
+  if (preguntasFiltradas.length === 0) {
+    alert("¡Genial! No tienes ninguna pregunta fallada pendiente de repasar.");
+    return;
+  }
+
+  state.modoTest = ui.modoTestSwitch.checked;
+  iniciarIntentoConPreguntas(preguntasFiltradas);
+};
+
+const FALLADAS_STORAGE_KEY = "preguntasFalladas";
+
+const leerPreguntasFalladas = () => {
+  try {
+    const raw = localStorage.getItem(FALLADAS_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
+const guardarPreguntasFalladas = (ids) => {
+  localStorage.setItem(FALLADAS_STORAGE_KEY, JSON.stringify(ids));
+};
+
+const registrarPreguntaFallada = (preguntaId) => {
+  const actuales = leerPreguntasFalladas().map(String);
+  const id = String(preguntaId);
+
+  if (!actuales.includes(id)) {
+    actuales.push(id);
+    guardarPreguntasFalladas(actuales);
+  }
+};
+
+const quitarPreguntaDeFalladas = (preguntaId) => {
+  const id = String(preguntaId);
+  const filtradas = leerPreguntasFalladas().map(String).filter((x) => x !== id);
+  guardarPreguntasFalladas(filtradas);
+};
+
+const sincronizarResultadoEnStorage = (preguntaId, esCorrecta) => {
+  if (esCorrecta) {
+    quitarPreguntaDeFalladas(preguntaId);
+  } else {
+    registrarPreguntaFallada(preguntaId);
+  }
+};
+
 const volverAlInicio = () => {
   resetearEstadoTest();
+  state.modoTest = false;
+  ui.modoTestSwitch.checked = false;
   setPuntuacion(state.puntuacion);
   ui.pregunta.textContent = "Preparando quiz...";
   ui.opciones.innerHTML = "";
@@ -243,5 +354,6 @@ const cargarPreguntas = async () => {
 export const initQuizApp = () => {
   ui.iniciarBtn.addEventListener("click", iniciarTest);
   ui.siguienteBtn.addEventListener("click", avanzarConBoton);
+  ui.repasarFallosBtn.addEventListener("click", iniciarRepasoFallos);
   cargarPreguntas();
 };

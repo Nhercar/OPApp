@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz MVP</title>
+    <title>Test OP Enfermeria 2026</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -16,7 +16,15 @@
       <section id="inicio" class="tarjeta inicio" aria-label="Pantalla de inicio">
         <h2 class="pregunta">Listo para empezar el test</h2>
         <p id="inicioTexto" class="inicio__texto">Esta es la pantalla inicial. Desde aqui podras lanzar el quiz y luego sumar nuevas funciones.</p>
+        <label class="modo-test-control" for="modoTestSwitch">
+          <span class="modo-test-control__texto">Modo test (sin correccion hasta el final)</span>
+          <span class="switch">
+            <input id="modoTestSwitch" type="checkbox" role="switch" aria-label="Activar modo test" />
+            <span class="switch__slider" aria-hidden="true"></span>
+          </span>
+        </label>
         <button id="iniciarBtn" class="accion-btn" type="button">Iniciar test</button>
+        <button id="repasarFallosBtn" class="accion-btn secundario" type="button">Repasar Fallos</button>
       </section>
 
       <section id="quiz" class="tarjeta" aria-label="Pregunta actual" hidden>

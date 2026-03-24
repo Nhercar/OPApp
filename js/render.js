@@ -37,6 +37,14 @@ export const deshabilitarOpciones = () => {
   });
 };
 
+export const marcarSeleccionTemporal = (indiceSeleccionado) => {
+  const botones = ui.opciones.querySelectorAll(".opcion-btn");
+  botones.forEach((boton) => {
+    const indiceBoton = Number(boton.dataset.index);
+    boton.classList.toggle("seleccionada", indiceBoton === indiceSeleccionado);
+  });
+};
+
 export const mostrarBotonSiguiente = () => {
   ui.siguienteBtn.hidden = false;
 };
@@ -100,13 +108,23 @@ const construirContenidoOpcion = (texto, indice) => {
   return { clave, contenido };
 };
 
-export const renderPregunta = ({ pregunta, preguntaActual, totalPreguntas, onOptionClick }) => {
+export const renderPregunta = ({
+  pregunta,
+  preguntaActual,
+  totalPreguntas,
+  onOptionClick,
+  modoTest = false,
+}) => {
   ui.pregunta.textContent = pregunta.texto;
   ui.opciones.innerHTML = "";
   limpiarAccionPregunta();
   ocultarResumen();
   actualizarBotonSiguiente(false);
-  setEstado(`Pregunta ${preguntaActual + 1} de ${totalPreguntas}`);
+  setEstado(
+    modoTest
+      ? `Pregunta ${preguntaActual + 1} de ${totalPreguntas} · Modo test`
+      : `Pregunta ${preguntaActual + 1} de ${totalPreguntas}`
+  );
 
   pregunta.opciones.forEach((opcion, indice) => {
     const boton = document.createElement("button");
