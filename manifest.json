@@ -2,8 +2,8 @@
   "name": "Test OP Enfermería 2026",
   "short_name": "Test OP",
   "description": "Aplicación de test interactivo para preparar el examen de Enfermería",
-  "start_url": "/OPApp/",
-  "scope": "/OPApp/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
@@ -42,7 +42,7 @@
       "name": "Iniciar Test",
       "short_name": "Test",
       "description": "Inicia un nuevo test de preguntas",
-      "url": "/?action=start",
+      "url": "./?action=start",
       "icons": [
         {
           "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%230b6bcb' width='96' height='96'/><text x='48' y='65' font-size='40' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>T</text></svg>",
@@ -55,7 +55,7 @@
       "name": "Repasar Fallos",
       "short_name": "Fallos",
       "description": "Repasa las preguntas que fallaste",
-      "url": "/?action=review",
+      "url": "./?action=review",
       "icons": [
         {
           "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23f39c12' width='96' height='96'/><text x='48' y='65' font-size='40' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>R</text></svg>",
@@ -66,7 +66,7 @@
     }
   ],
   "share_target": {
-    "action": "/share",
+    "action": "./share",
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {
