@@ -19,7 +19,12 @@ import {
   ocultarResumen,
 } from "../render/renderUI.js";
 
-import { leerPreguntasFalladas, actualizarLabelRepasoInicio } from "./storageManager.js";
+import {
+  leerPreguntasFalladas,
+  actualizarLabelRepasoInicio,
+  registrarPreguntasVistas,
+  actualizarIndicadorVistasInicio,
+} from "./storageManager.js";
 import { validarRespuestaModoTest, registrarOmitidaActual, manejarRespuesta } from "./answerValidator.js";
 
 const construirLabelReintento = (totalFalladasStorage) =>
@@ -141,6 +146,7 @@ export const realizarPreguntasFallidas = () => {
 export const iniciarIntentoConPreguntas = (preguntasIntento) => {
   resetearEstadoTest();
   state.preguntas = preguntasIntento;
+  registrarPreguntasVistas(state.preguntas.map((pregunta) => pregunta.id));
   setPuntuacion(state.puntuacion);
   mostrarQuiz();
 
@@ -159,7 +165,9 @@ export const volverAlInicio = () => {
   resetearEstadoTest();
   state.modoTest = false;
   ui.modoTestSwitch.checked = false;
+  ui.soloNoVistasSwitch.checked = false;
   actualizarLabelRepasoInicio();
+  actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
   setPuntuacion(state.puntuacion);
   ui.pregunta.textContent = "Preparando quiz...";
   ui.opciones.innerHTML = "";

@@ -3,6 +3,7 @@ export const ui = {
   inicio: document.querySelector("#inicio"),
   inicioTexto: document.querySelector("#inicioTexto"),
   modoTestSwitch: document.querySelector("#modoTestSwitch"),
+  soloNoVistasSwitch: document.querySelector("#soloNoVistasSwitch"),
   iniciarBtn: document.querySelector("#iniciarBtn"),
   quiz: document.querySelector("#quiz"),
   resultado: document.querySelector("#resultado"),
@@ -14,4 +15,5 @@ export const ui = {
   resumen: document.querySelector("#resumen"),
   resumenBotones: document.querySelector("#resumenBotones"),
   repasarFallosBtn: document.querySelector("#repasarFallosBtn"),
+  porcentajeVistas: document.querySelector("#porcentajeVistas"),
 };

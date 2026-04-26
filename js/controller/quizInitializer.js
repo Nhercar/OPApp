@@ -7,7 +7,12 @@ import {
   renderInicioCargando,
   renderInicioListo,
 } from "../render/renderUI.js";
-import { leerPreguntasFalladas, actualizarLabelRepasoInicio } from "./storageManager.js";
+import {
+  leerPreguntasFalladas,
+  leerPreguntasVistas,
+  actualizarLabelRepasoInicio,
+  actualizarIndicadorVistasInicio,
+} from "./storageManager.js";
 import { iniciarIntentoConPreguntas, avanzarConBoton } from "./quizFlow.js";
 
 const mezclarPreguntas = (preguntas) => {
@@ -39,6 +44,7 @@ export const cargarPreguntas = async () => {
     state.preguntas = [];
     state.cargado = true;
     actualizarLabelRepasoInicio();
+    actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
     console.log("✅ Estado actualizado, renderizando pantalla lista");
     renderInicioListo(START_READY_TEXT);
   } catch (error) {
@@ -55,8 +61,21 @@ export const iniciarTest = () => {
 
   state.modoTest = ui.modoTestSwitch.checked;
 
+  let bancoParaSeleccion = state.bancoPreguntas;
+  if (ui.soloNoVistasSwitch.checked) {
+    const idsVistas = new Set(leerPreguntasVistas().map(String));
+    bancoParaSeleccion = state.bancoPreguntas.filter(
+      (pregunta) => !idsVistas.has(String(pregunta.id))
+    );
+
+    if (bancoParaSeleccion.length === 0) {
+      alert("Ya has visto todas las preguntas disponibles.");
+      return;
+    }
+  }
+
   const preguntasAleatorias = seleccionarPreguntasAleatorias(
-    state.bancoPreguntas,
+    bancoParaSeleccion,
     QUIZ_CONFIG.preguntasPorTest
   );
 
@@ -91,6 +110,7 @@ export const iniciarRepasoFallos = () => {
 export const initQuizApp = () => {
   console.log("🚀 Inicializando aplicación de quiz...");
   actualizarLabelRepasoInicio();
+  actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
   ui.iniciarBtn.addEventListener("click", iniciarTest);
   ui.siguienteBtn.addEventListener("click", avanzarConBoton);
   ui.repasarFallosBtn.addEventListener("click", iniciarRepasoFallos);

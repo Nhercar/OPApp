@@ -42,8 +42,16 @@
             <span class="switch__slider" aria-hidden="true"></span>
           </span>
         </label>
+        <label class="modo-test-control" for="soloNoVistasSwitch">
+          <span class="modo-test-control__texto">Solo preguntas no vistas</span>
+          <span class="switch">
+            <input id="soloNoVistasSwitch" type="checkbox" role="switch" aria-label="Activar preguntas no vistas" />
+            <span class="switch__slider" aria-hidden="true"></span>
+          </span>
+        </label>
         <button id="iniciarBtn" class="accion-btn" type="button">Iniciar test</button>
         <button id="repasarFallosBtn" class="accion-btn secundario" type="button">Repasar Fallos</button>
+        <p id="porcentajeVistas" class="inicio__texto">Preguntas vistas: 0%</p>
       </section>
 
       <section id="quiz" class="tarjeta" aria-label="Pregunta actual" hidden>
@@ -79,6 +87,11 @@
             .then((registration) => {
               console.log('✅ Service Worker registrado en:', swPath);
               console.log('📍 Scope:', registration.scope);
+
+              // Comprobar actualización al abrir la app.
+              registration.update().catch((error) => {
+                console.warn('⚠️ No se pudo comprobar actualización al abrir:', error);
+              });
               
               // Buscar actualizaciones cada hora
               setInterval(() => {
