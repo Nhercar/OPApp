@@ -1,5 +1,5 @@
 // Service Worker para PWA - Caching Strategy: Cache First, falling back to Network
-const CACHE_NAME = 'quiz-app-v4';
+const CACHE_NAME = 'quiz-app-v5';
 const URLS_TO_CACHE = [
   './',
   './index.html',
@@ -71,6 +71,27 @@ self.addEventListener('fetch', (event) => {
 
   // No cachear requests a dominios externos
   if (url.origin !== self.location.origin) {
+    return;
+  }
+
+  // Para preguntas.json priorizamos red para no quedarnos con datos antiguos.
+  if (url.pathname.endsWith('/preguntas.json')) {
+    event.respondWith(
+      fetch(request)
+        .then((networkResponse) => {
+          if (!networkResponse || networkResponse.status !== 200) {
+            return networkResponse;
+          }
+
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseToCache);
+          });
+
+          return networkResponse;
+        })
+        .catch(() => caches.match(request))
+    );
     return;
   }
 
