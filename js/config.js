@@ -1,7 +1,7 @@
 export const QUIZ_CONFIG = {
   dataUrl: "/OPApp/preguntas.json",
   transitionMs: 1500,
-  preguntasPorTest: 3,
+  preguntasPorTest: 10,
 };
 
 export const START_READY_TEXT =
