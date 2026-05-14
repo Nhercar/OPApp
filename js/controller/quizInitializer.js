@@ -139,8 +139,9 @@ export const initQuizApp = () => {
     if (ajustes.rangeEnd && ui.rangeEnd) ui.rangeEnd.value = ajustes.rangeEnd;
   }
 
-  if (ui.aplicarRangoBtn) {
-    ui.aplicarRangoBtn.addEventListener('click', () => {
+  // Manejador para "Guardar ajustes"
+  if (ui.guardarAjustesBtn) {
+    ui.guardarAjustesBtn.addEventListener('click', () => {
       const start = Number(ui.rangeStart.value) || null;
       const end = Number(ui.rangeEnd.value) || null;
       if (start && end && start > end) {
@@ -159,10 +160,14 @@ export const initQuizApp = () => {
       } else {
         actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
       }
-      alert('Rango guardado');
+      // Cerrar el accordion
+      if (ui.ajustesAccordion) {
+        ui.ajustesAccordion.open = false;
+      }
     });
   }
 
+  // Manejador para "Limpiar rango"
   if (ui.limpiarRangoBtn) {
     ui.limpiarRangoBtn.addEventListener('click', () => {
       const actuales = leerAjustes() || {};
@@ -172,7 +177,6 @@ export const initQuizApp = () => {
       if (ui.rangeStart) ui.rangeStart.value = '';
       if (ui.rangeEnd) ui.rangeEnd.value = '';
       actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
-      alert('Rango limpiado');
     });
   }
   ui.iniciarBtn.addEventListener("click", iniciarTest);

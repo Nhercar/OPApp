@@ -380,3 +380,46 @@ background: #0857a5;
     max-height: 58vh;
   }
 }
+
+/* Accordion styles */
+.accordion {
+  margin-top: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem;
+  background: #f8fafc;
+  color: #2f4356;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s ease;
+}
+
+.accordion__header:hover {
+  background: #f0f5fb;
+}
+
+.accordion__content {
+  padding: 0 0.9rem 0.9rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Hide by default, show when accordion is open */
+.accordion[open] .accordion__header {
+  background: #e9f2ff;
+}
+
+.accordion:not([open]) .accordion__content {
+  display: none;
+}

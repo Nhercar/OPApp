@@ -35,28 +35,36 @@
       <section id="inicio" class="tarjeta inicio" aria-label="Pantalla de inicio">
         <h2 class="pregunta">Listo para empezar el test</h2>
         <p id="inicioTexto" class="inicio__texto">Esta es la pantalla inicial. Desde aqui podras lanzar el quiz y luego sumar nuevas funciones.</p>
-        <label class="modo-test-control" for="modoTestSwitch">
-          <span class="modo-test-control__texto">Modo test (sin correccion hasta el final)</span>
-          <span class="switch">
-            <input id="modoTestSwitch" type="checkbox" role="switch" aria-label="Activar modo test" />
-            <span class="switch__slider" aria-hidden="true"></span>
-          </span>
-        </label>
-        <label class="modo-test-control" for="soloNoVistasSwitch">
-          <span class="modo-test-control__texto">Solo preguntas no vistas</span>
-          <span class="switch">
-            <input id="soloNoVistasSwitch" type="checkbox" role="switch" aria-label="Activar preguntas no vistas" />
-            <span class="switch__slider" aria-hidden="true"></span>
-          </span>
-        </label>
-        <div class="modo-test-control" id="rangoControles" style="margin-top:0.8rem; display:flex; gap:0.6rem; align-items:center;">
-          <label style="display:flex;align-items:center;gap:0.5rem;">Rango:
-            <input id="rangeStart" type="number" min="1" placeholder="Desde" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border)" />
-            <input id="rangeEnd" type="number" min="1" placeholder="Hasta" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border)" />
-          </label>
-          <button id="aplicarRangoBtn" class="accion-btn secundario" type="button" style="width:auto;padding:0.5rem 0.8rem;">Aplicar rango</button>
-          <button id="limpiarRangoBtn" class="accion-btn secundario" type="button" style="width:auto;padding:0.5rem 0.8rem;">Limpiar rango</button>
-        </div>
+        
+        <!-- Accordion de Ajustes -->
+        <details class="accordion" id="ajustesAccordion">
+          <summary class="accordion__header">⚙️ Ajustes</summary>
+          <div class="accordion__content">
+            <label class="modo-test-control" for="modoTestSwitch">
+              <span class="modo-test-control__texto">Modo test (sin correccion hasta el final)</span>
+              <span class="switch">
+                <input id="modoTestSwitch" type="checkbox" role="switch" aria-label="Activar modo test" />
+                <span class="switch__slider" aria-hidden="true"></span>
+              </span>
+            </label>
+            <label class="modo-test-control" for="soloNoVistasSwitch">
+              <span class="modo-test-control__texto">Solo preguntas no vistas</span>
+              <span class="switch">
+                <input id="soloNoVistasSwitch" type="checkbox" role="switch" aria-label="Activar preguntas no vistas" />
+                <span class="switch__slider" aria-hidden="true"></span>
+              </span>
+            </label>
+            <div class="modo-test-control" id="rangoControles" style="margin-top:0.8rem; display:flex; flex-direction:column; gap:0.6rem;">
+              <label style="display:flex;align-items:center;gap:0.5rem;">Rango:
+                <input id="rangeStart" type="number" min="1" placeholder="Desde" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border)" />
+                <input id="rangeEnd" type="number" min="1" placeholder="Hasta" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border)" />
+              </label>
+              <button id="limpiarRangoBtn" class="accion-btn secundario" type="button" style="width:100%;padding:0.5rem 0.8rem;">Limpiar rango</button>
+            </div>
+            <button id="guardarAjustesBtn" class="accion-btn" type="button" style="width:100%;margin-top:0.8rem;">Guardar ajustes</button>
+          </div>
+        </details>
+        
         <button id="iniciarBtn" class="accion-btn" type="button">Iniciar test</button>
         <button id="repasarFallosBtn" class="accion-btn secundario" type="button">Repasar Fallos</button>
         <p id="porcentajeVistas" class="inicio__texto">Preguntas vistas: 0%</p>
