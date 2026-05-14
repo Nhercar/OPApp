@@ -24,6 +24,7 @@ import {
   actualizarLabelRepasoInicio,
   registrarPreguntasVistas,
   actualizarIndicadorVistasInicio,
+  leerAjustes,
 } from "./storageManager.js";
 import { validarRespuestaModoTest, registrarOmitidaActual, manejarRespuesta } from "./answerValidator.js";
 
@@ -132,7 +133,15 @@ export const revisarPreguntaPorOrden = (orderIndex) => {
 
 export const realizarPreguntasFallidas = () => {
   const idsFalladas = new Set(leerPreguntasFalladas().map(String));
-  const fallidas = state.bancoPreguntas.filter((pregunta) => idsFalladas.has(String(pregunta.id)));
+  const ajustes = leerAjustes();
+  const bancoEnRango =
+    ajustes.rangeStart != null && ajustes.rangeEnd != null
+      ? state.bancoPreguntas.filter((pregunta) => {
+          const id = Number(pregunta.id);
+          return id >= Number(ajustes.rangeStart) && id <= Number(ajustes.rangeEnd);
+        })
+      : state.bancoPreguntas;
+  const fallidas = bancoEnRango.filter((pregunta) => idsFalladas.has(String(pregunta.id)));
 
   if (fallidas.length === 0) {
     setEstado("No hay preguntas fallidas pendientes");
@@ -164,11 +173,21 @@ export const iniciarIntentoConPreguntas = (preguntasIntento) => {
 
 export const volverAlInicio = () => {
   resetearEstadoTest();
-  state.modoTest = false;
-  ui.modoTestSwitch.checked = false;
-  ui.soloNoVistasSwitch.checked = false;
+  const ajustes = leerAjustes();
+  state.modoTest = Boolean(ajustes.modoTest);
+  ui.modoTestSwitch.checked = Boolean(ajustes.modoTest);
+  ui.soloNoVistasSwitch.checked = Boolean(ajustes.soloNoVistas);
+  ui.rangeStart.value = ajustes.rangeStart ?? "";
+  ui.rangeEnd.value = ajustes.rangeEnd ?? "";
   actualizarLabelRepasoInicio();
-  actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
+  const totalEnRango =
+    ajustes.rangeStart != null && ajustes.rangeEnd != null
+      ? state.bancoPreguntas.filter((pregunta) => {
+          const id = Number(pregunta.id);
+          return id >= Number(ajustes.rangeStart) && id <= Number(ajustes.rangeEnd);
+        }).length
+      : state.bancoPreguntas.length;
+  actualizarIndicadorVistasInicio(totalEnRango);
   setPuntuacion(state.puntuacion);
   ui.pregunta.textContent = "Preparando quiz...";
   ui.opciones.innerHTML = "";

@@ -39,7 +39,19 @@ export const registrarPreguntasVistas = (idsPreguntas) => {
 };
 
 export const actualizarIndicadorVistasInicio = (totalBanco = 0) => {
-  const totalVistas = leerPreguntasVistas().length;
+  const ajustes = leerAjustes();
+  const vistas = leerPreguntasVistas();
+
+  let totalVistas = vistas.length;
+  if (ajustes.rangeStart != null && ajustes.rangeEnd != null) {
+    const start = Number(ajustes.rangeStart);
+    const end = Number(ajustes.rangeEnd);
+    totalVistas = vistas.filter((id) => {
+      const numero = Number(id);
+      return numero >= start && numero <= end;
+    }).length;
+  }
+
   const porcentaje = totalBanco > 0 ? Math.round((totalVistas / totalBanco) * 100) : 0;
   ui.porcentajeVistas.textContent = `Preguntas vistas: ${porcentaje}% (${totalVistas}/${totalBanco})`;
 };

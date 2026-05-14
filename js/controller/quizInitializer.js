@@ -17,6 +17,56 @@ import {
 } from "./storageManager.js";
 import { iniciarIntentoConPreguntas, avanzarConBoton } from "./quizFlow.js";
 
+const leerNumeroONull = (valor) => {
+  const numero = Number(valor);
+  return Number.isFinite(numero) && numero > 0 ? numero : null;
+};
+
+const obtenerAjustesDesdeUI = () => ({
+  modoTest: ui.modoTestSwitch.checked,
+  soloNoVistas: ui.soloNoVistasSwitch.checked,
+  rangeStart: leerNumeroONull(ui.rangeStart?.value),
+  rangeEnd: leerNumeroONull(ui.rangeEnd?.value),
+});
+
+const aplicarAjustesALaUI = (ajustes = {}) => {
+  if (ui.modoTestSwitch) {
+    ui.modoTestSwitch.checked = Boolean(ajustes.modoTest);
+  }
+
+  if (ui.soloNoVistasSwitch) {
+    ui.soloNoVistasSwitch.checked = Boolean(ajustes.soloNoVistas);
+  }
+
+  if (ui.rangeStart) {
+    ui.rangeStart.value = ajustes.rangeStart ?? "";
+  }
+
+  if (ui.rangeEnd) {
+    ui.rangeEnd.value = ajustes.rangeEnd ?? "";
+  }
+};
+
+const filtrarBancoPorRango = (bancoPreguntas, ajustes = leerAjustes()) => {
+  if (ajustes.rangeStart == null || ajustes.rangeEnd == null) {
+    return bancoPreguntas;
+  }
+
+  const start = Number(ajustes.rangeStart);
+  const end = Number(ajustes.rangeEnd);
+
+  return bancoPreguntas.filter((pregunta) => {
+    const id = Number(pregunta.id);
+    return id >= start && id <= end;
+  });
+};
+
+const guardarAjustesActuales = () => {
+  const ajustes = obtenerAjustesDesdeUI();
+  guardarAjustes(ajustes);
+  return ajustes;
+};
+
 const mezclarPreguntas = (preguntas) => {
   const copia = [...preguntas];
 
@@ -46,16 +96,8 @@ export const cargarPreguntas = async () => {
     state.preguntas = [];
     state.cargado = true;
     actualizarLabelRepasoInicio();
-    actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
-      // Aplicar ajustes guardados (si hay rango) para mostrar el porcentaje relativo al banco seleccionado
-      const ajustes = leerAjustes();
-      if (ajustes && ajustes.rangeStart && ajustes.rangeEnd) {
-        const totalEnRango = state.bancoPreguntas.filter(p => {
-          const id = Number(p.id);
-          return id >= Number(ajustes.rangeStart) && id <= Number(ajustes.rangeEnd);
-        }).length;
-        actualizarIndicadorVistasInicio(totalEnRango);
-      }
+    const ajustes = leerAjustes();
+    actualizarIndicadorVistasInicio(filtrarBancoPorRango(state.bancoPreguntas, ajustes).length);
     console.log("✅ Estado actualizado, renderizando pantalla lista");
     renderInicioListo(START_READY_TEXT);
   } catch (error) {
@@ -70,12 +112,13 @@ export const iniciarTest = () => {
     return;
   }
 
-  state.modoTest = ui.modoTestSwitch.checked;
+  const ajustes = guardarAjustesActuales();
+  state.modoTest = ajustes.modoTest;
 
-  let bancoParaSeleccion = state.bancoPreguntas;
-  if (ui.soloNoVistasSwitch.checked) {
+  let bancoParaSeleccion = filtrarBancoPorRango(state.bancoPreguntas, ajustes);
+  if (ajustes.soloNoVistas) {
     const idsVistas = new Set(leerPreguntasVistas().map(String));
-    bancoParaSeleccion = state.bancoPreguntas.filter(
+    bancoParaSeleccion = bancoParaSeleccion.filter(
       (pregunta) => !idsVistas.has(String(pregunta.id))
     );
 
@@ -84,16 +127,6 @@ export const iniciarTest = () => {
       return;
     }
   }
-    // Aplicar rango si hay ajustes
-    const ajustes = leerAjustes();
-    if (ajustes && ajustes.rangeStart && ajustes.rangeEnd) {
-      const start = Number(ajustes.rangeStart);
-      const end = Number(ajustes.rangeEnd);
-      bancoParaSeleccion = bancoParaSeleccion.filter((p) => {
-        const id = Number(p.id);
-        return id >= start && id <= end;
-      });
-    }
 
   const preguntasAleatorias = seleccionarPreguntasAleatorias(
     bancoParaSeleccion,
@@ -108,6 +141,7 @@ export const iniciarRepasoFallos = () => {
     return;
   }
 
+  const ajustes = guardarAjustesActuales();
   const idsFalladas = new Set(leerPreguntasFalladas().map(String));
 
   if (idsFalladas.size === 0) {
@@ -115,9 +149,8 @@ export const iniciarRepasoFallos = () => {
     return;
   }
 
-  const preguntasFiltradas = state.bancoPreguntas.filter((pregunta) =>
-    idsFalladas.has(String(pregunta.id))
-  );
+  const bancoEnRango = filtrarBancoPorRango(state.bancoPreguntas, ajustes);
+  const preguntasFiltradas = bancoEnRango.filter((pregunta) => idsFalladas.has(String(pregunta.id)));
 
   if (preguntasFiltradas.length === 0) {
     alert("¡Genial! No tienes ninguna pregunta fallada pendiente de repasar.");
@@ -132,34 +165,18 @@ export const initQuizApp = () => {
   console.log("🚀 Inicializando aplicación de quiz...");
   actualizarLabelRepasoInicio();
   actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
-  // Inicializar controles de rango con ajustes guardados
-  const ajustes = leerAjustes();
-  if (ajustes) {
-    if (ajustes.rangeStart && ui.rangeStart) ui.rangeStart.value = ajustes.rangeStart;
-    if (ajustes.rangeEnd && ui.rangeEnd) ui.rangeEnd.value = ajustes.rangeEnd;
-  }
+  aplicarAjustesALaUI(leerAjustes());
 
   // Manejador para "Guardar ajustes"
   if (ui.guardarAjustesBtn) {
     ui.guardarAjustesBtn.addEventListener('click', () => {
-      const start = Number(ui.rangeStart.value) || null;
-      const end = Number(ui.rangeEnd.value) || null;
-      if (start && end && start > end) {
+      const ajustes = obtenerAjustesDesdeUI();
+      if (ajustes.rangeStart != null && ajustes.rangeEnd != null && ajustes.rangeStart > ajustes.rangeEnd) {
         alert('El valor "Desde" debe ser menor o igual que "Hasta"');
         return;
       }
-      const nuevos = { ...(leerAjustes() || {}), rangeStart: start, rangeEnd: end };
-      guardarAjustes(nuevos);
-      // actualizar indicador en base al rango nuevo
-      if (state.bancoPreguntas.length > 0 && start && end) {
-        const totalEnRango = state.bancoPreguntas.filter(p => {
-          const id = Number(p.id);
-          return id >= start && id <= end;
-        }).length;
-        actualizarIndicadorVistasInicio(totalEnRango);
-      } else {
-        actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
-      }
+      guardarAjustes(ajustes);
+      actualizarIndicadorVistasInicio(filtrarBancoPorRango(state.bancoPreguntas, ajustes).length);
       // Cerrar el accordion
       if (ui.ajustesAccordion) {
         ui.ajustesAccordion.open = false;
@@ -170,12 +187,13 @@ export const initQuizApp = () => {
   // Manejador para "Limpiar rango"
   if (ui.limpiarRangoBtn) {
     ui.limpiarRangoBtn.addEventListener('click', () => {
-      const actuales = leerAjustes() || {};
-      delete actuales.rangeStart;
-      delete actuales.rangeEnd;
-      guardarAjustes(actuales);
-      if (ui.rangeStart) ui.rangeStart.value = '';
-      if (ui.rangeEnd) ui.rangeEnd.value = '';
+      const ajustes = {
+        ...(leerAjustes() || {}),
+        rangeStart: null,
+        rangeEnd: null,
+      };
+      guardarAjustes(ajustes);
+      aplicarAjustesALaUI(ajustes);
       actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
     });
   }
