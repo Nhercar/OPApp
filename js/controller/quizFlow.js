@@ -146,6 +146,7 @@ export const realizarPreguntasFallidas = () => {
 export const iniciarIntentoConPreguntas = (preguntasIntento) => {
   resetearEstadoTest();
   state.preguntas = preguntasIntento;
+  // Registrar como vistas solo las preguntas del intento actual (si se usan vistas)
   registrarPreguntasVistas(state.preguntas.map((pregunta) => pregunta.id));
   setPuntuacion(state.puntuacion);
   mostrarQuiz();

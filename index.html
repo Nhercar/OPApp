@@ -49,6 +49,14 @@
             <span class="switch__slider" aria-hidden="true"></span>
           </span>
         </label>
+        <div class="modo-test-control" id="rangoControles" style="margin-top:0.8rem; display:flex; gap:0.6rem; align-items:center;">
+          <label style="display:flex;align-items:center;gap:0.5rem;">Rango:
+            <input id="rangeStart" type="number" min="1" placeholder="Desde" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border)" />
+            <input id="rangeEnd" type="number" min="1" placeholder="Hasta" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border)" />
+          </label>
+          <button id="aplicarRangoBtn" class="accion-btn secundario" type="button" style="width:auto;padding:0.5rem 0.8rem;">Aplicar rango</button>
+          <button id="limpiarRangoBtn" class="accion-btn secundario" type="button" style="width:auto;padding:0.5rem 0.8rem;">Limpiar rango</button>
+        </div>
         <button id="iniciarBtn" class="accion-btn" type="button">Iniciar test</button>
         <button id="repasarFallosBtn" class="accion-btn secundario" type="button">Repasar Fallos</button>
         <p id="porcentajeVistas" class="inicio__texto">Preguntas vistas: 0%</p>

@@ -2,6 +2,7 @@ import { ui } from "../dom.js";
 
 const FALLADAS_STORAGE_KEY = "preguntasFalladas";
 const VISTAS_STORAGE_KEY = "preguntasVistas";
+const SETTINGS_KEY = "quizSettings";
 
 export const leerPreguntasFalladas = () => {
   try {
@@ -41,6 +42,19 @@ export const actualizarIndicadorVistasInicio = (totalBanco = 0) => {
   const totalVistas = leerPreguntasVistas().length;
   const porcentaje = totalBanco > 0 ? Math.round((totalVistas / totalBanco) * 100) : 0;
   ui.porcentajeVistas.textContent = `Preguntas vistas: ${porcentaje}% (${totalVistas}/${totalBanco})`;
+};
+
+export const guardarAjustes = (settings) => {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+};
+
+export const leerAjustes = () => {
+  try {
+    const raw = localStorage.getItem(SETTINGS_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
 };
 
 export const registrarPreguntaFallada = (preguntaId) => {

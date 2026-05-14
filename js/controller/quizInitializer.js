@@ -12,6 +12,8 @@ import {
   leerPreguntasVistas,
   actualizarLabelRepasoInicio,
   actualizarIndicadorVistasInicio,
+  leerAjustes,
+  guardarAjustes,
 } from "./storageManager.js";
 import { iniciarIntentoConPreguntas, avanzarConBoton } from "./quizFlow.js";
 
@@ -45,6 +47,15 @@ export const cargarPreguntas = async () => {
     state.cargado = true;
     actualizarLabelRepasoInicio();
     actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
+      // Aplicar ajustes guardados (si hay rango) para mostrar el porcentaje relativo al banco seleccionado
+      const ajustes = leerAjustes();
+      if (ajustes && ajustes.rangeStart && ajustes.rangeEnd) {
+        const totalEnRango = state.bancoPreguntas.filter(p => {
+          const id = Number(p.id);
+          return id >= Number(ajustes.rangeStart) && id <= Number(ajustes.rangeEnd);
+        }).length;
+        actualizarIndicadorVistasInicio(totalEnRango);
+      }
     console.log("✅ Estado actualizado, renderizando pantalla lista");
     renderInicioListo(START_READY_TEXT);
   } catch (error) {
@@ -73,6 +84,16 @@ export const iniciarTest = () => {
       return;
     }
   }
+    // Aplicar rango si hay ajustes
+    const ajustes = leerAjustes();
+    if (ajustes && ajustes.rangeStart && ajustes.rangeEnd) {
+      const start = Number(ajustes.rangeStart);
+      const end = Number(ajustes.rangeEnd);
+      bancoParaSeleccion = bancoParaSeleccion.filter((p) => {
+        const id = Number(p.id);
+        return id >= start && id <= end;
+      });
+    }
 
   const preguntasAleatorias = seleccionarPreguntasAleatorias(
     bancoParaSeleccion,
@@ -111,6 +132,49 @@ export const initQuizApp = () => {
   console.log("🚀 Inicializando aplicación de quiz...");
   actualizarLabelRepasoInicio();
   actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
+  // Inicializar controles de rango con ajustes guardados
+  const ajustes = leerAjustes();
+  if (ajustes) {
+    if (ajustes.rangeStart && ui.rangeStart) ui.rangeStart.value = ajustes.rangeStart;
+    if (ajustes.rangeEnd && ui.rangeEnd) ui.rangeEnd.value = ajustes.rangeEnd;
+  }
+
+  if (ui.aplicarRangoBtn) {
+    ui.aplicarRangoBtn.addEventListener('click', () => {
+      const start = Number(ui.rangeStart.value) || null;
+      const end = Number(ui.rangeEnd.value) || null;
+      if (start && end && start > end) {
+        alert('El valor "Desde" debe ser menor o igual que "Hasta"');
+        return;
+      }
+      const nuevos = { ...(leerAjustes() || {}), rangeStart: start, rangeEnd: end };
+      guardarAjustes(nuevos);
+      // actualizar indicador en base al rango nuevo
+      if (state.bancoPreguntas.length > 0 && start && end) {
+        const totalEnRango = state.bancoPreguntas.filter(p => {
+          const id = Number(p.id);
+          return id >= start && id <= end;
+        }).length;
+        actualizarIndicadorVistasInicio(totalEnRango);
+      } else {
+        actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
+      }
+      alert('Rango guardado');
+    });
+  }
+
+  if (ui.limpiarRangoBtn) {
+    ui.limpiarRangoBtn.addEventListener('click', () => {
+      const actuales = leerAjustes() || {};
+      delete actuales.rangeStart;
+      delete actuales.rangeEnd;
+      guardarAjustes(actuales);
+      if (ui.rangeStart) ui.rangeStart.value = '';
+      if (ui.rangeEnd) ui.rangeEnd.value = '';
+      actualizarIndicadorVistasInicio(state.bancoPreguntas.length);
+      alert('Rango limpiado');
+    });
+  }
   ui.iniciarBtn.addEventListener("click", iniciarTest);
   ui.siguienteBtn.addEventListener("click", avanzarConBoton);
   ui.repasarFallosBtn.addEventListener("click", iniciarRepasoFallos);
