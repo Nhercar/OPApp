@@ -4,6 +4,7 @@ export const ui = {
   inicioTexto: document.querySelector("#inicioTexto"),
   modoTestSwitch: document.querySelector("#modoTestSwitch"),
   soloNoVistasSwitch: document.querySelector("#soloNoVistasSwitch"),
+  preguntasPorTestInput: document.querySelector("#preguntasPorTestInput"),
   rangeStart: document.querySelector('#rangeStart'),
   rangeEnd: document.querySelector('#rangeEnd'),
   limpiarRangoBtn: document.querySelector('#limpiarRangoBtn'),

@@ -25,6 +25,7 @@ const leerNumeroONull = (valor) => {
 const obtenerAjustesDesdeUI = () => ({
   modoTest: ui.modoTestSwitch.checked,
   soloNoVistas: ui.soloNoVistasSwitch.checked,
+  preguntasPorTest: leerNumeroONull(ui.preguntasPorTestInput?.value),
   rangeStart: leerNumeroONull(ui.rangeStart?.value),
   rangeEnd: leerNumeroONull(ui.rangeEnd?.value),
 });
@@ -36,6 +37,10 @@ const aplicarAjustesALaUI = (ajustes = {}) => {
 
   if (ui.soloNoVistasSwitch) {
     ui.soloNoVistasSwitch.checked = Boolean(ajustes.soloNoVistas);
+  }
+
+  if (ui.preguntasPorTestInput) {
+    ui.preguntasPorTestInput.value = ajustes.preguntasPorTest ?? "";
   }
 
   if (ui.rangeStart) {
@@ -130,7 +135,7 @@ export const iniciarTest = () => {
 
   const preguntasAleatorias = seleccionarPreguntasAleatorias(
     bancoParaSeleccion,
-    QUIZ_CONFIG.preguntasPorTest
+    ajustes.preguntasPorTest ?? QUIZ_CONFIG.preguntasPorTest
   );
 
   iniciarIntentoConPreguntas(preguntasAleatorias);
