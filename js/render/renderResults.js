@@ -107,6 +107,14 @@ export const renderResumenFinal = ({ respuestas, onReview }) => {
       botonResumen.addEventListener("click", () => onReview(registro.orderIndex));
 
       ui.resumenBotones.appendChild(botonResumen);
+
+      const botonInicio = document.createElement("button");
+    botonInicio.type = "button";
+    botonInicio.className = "accion-btn secundario quiz-back";
+    botonInicio.textContent = "Volver al inicio";
+    botonInicio.addEventListener("click", onBackHome);
+
+    ui.resumenBotoones.appendChild(botonInicio);
     });
 };
 
