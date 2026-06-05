@@ -322,6 +322,17 @@ background: #0857a5;
   gap: 0.45rem;
 }
 
+/* Ensure action bar and the collapsible map span the full grid width
+   so the "Volver al inicio" button appears above the map (not lateral). */
+.resumen-botones > .resumen-mapa__acciones {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.resumen-botones > .resumen-mapa {
+  grid-column: 1 / -1;
+}
+
 .resumen-btn {
   min-height: 44px;
   border: 1px solid var(--border);
