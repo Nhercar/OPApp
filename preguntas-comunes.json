@@ -1648,5 +1648,555 @@
       "Crear una base de datos pública con el historial clínico de toda la ciudadanía."
     ],
     "correcta": 2
+  },
+  {
+    "id": 151,
+    "texto": "¿Cuál es el Objetivo General establecido para la “Estrategia de Seguridad del Paciente 20-30”?",
+    "opciones": [
+      "Reducir a cero los eventos adversos mediante la incorporación de tecnología robótica.",
+      "Mejorar la calidad asistencial del sistema sanitario vasco.",
+      "Promover el máximo nivel de seguridad posible, minimizando la probabilidad de ocurrencia de incidentes de seguridad en el transcurso de la asistencia sanitaria.",
+      "Centralizar la gestión de riesgos en un único organismo fuera de Osakidetza."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 152,
+    "texto": "El principio hipocrático al que se hace referencia en la “Estrategia de Seguridad del Paciente 20-30”, y que la ciudadanía asume que se verifica en el transcurso de la actividad asistencial, es:",
+    "opciones": [
+      "Salus populi suprema lex esto (la salud del pueblo es la ley suprema).",
+      "Corpus sanum in mente sana (mente sana en cuerpo sano).",
+      "Lex artis ad hoc (ley del arte para el caso).",
+      "Primum non nocere (primero no hacer daño)."
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 153,
+    "texto": "¿Cuáles son las dos nuevas Líneas de Acción incorporadas en la “Estrategia de Seguridad del Paciente 20-30” que responden a una necesidad percibida por las personas expertas?",
+    "opciones": [
+      "Seguridad en Pediatría y Buenas Prácticas en el Uso de Biológicos.",
+      "Atención en Cuidados Paliativos y Seguridad Domiciliaria.",
+      "La Seguridad de Paciente en Emergencias y la Prevención del Suicidio.",
+      "Seguridad en Salud Mental y Prevención de las Úlceras por Presión."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 154,
+    "texto": "De acuerdo con la “Estrategia de Seguridad del Paciente 20-30”, ¿cómo se denomina al incidente de seguridad que, a diferencia del incidente sin daño, sí ocasiona algún tipo de daño a las personas atendidas?",
+    "opciones": [
+      "Error no evitable.",
+      "Circunstancia notificable.",
+      "Fallo latente.",
+      "Evento Adverso."
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 155,
+    "texto": "¿Cuál es el enfoque principal de la Línea de Acción Corporativa L2 de la “Estrategia de Seguridad del Paciente 20-30”?",
+    "opciones": [
+      "Implicación de pacientes en su seguridad.",
+      "Conciliación de la medicación.",
+      "Atención a las segundas y terceras víctimas.",
+      "Gestión de los incidentes de seguridad."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 156,
+    "texto": "¿Cuál de los siguientes es el Objetivo Específico número 1 de la “Estrategia de Seguridad del Paciente 20-30”, enfocado en el cambio interno?",
+    "opciones": [
+      "Garantizar la continuidad de las líneas de acción y proyectos previamente implantados.",
+      "Impulsar la cultura de seguridad de paciente en las organizaciones de servicios de Osakidetza, promoviendo la formación y sensibilización como aspectos clave.",
+      "Optimizar la prescripción de pruebas diagnósticas que utilizan radiación ionizante.",
+      "Implantar un sistema de identificación inequívoca de pacientes en todas las fases del proceso asistencial."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 157,
+    "texto": "La Línea de Acción Corporativa L8 de la “Estrategia de Seguridad del Paciente 20-30” está dedicada a:",
+    "opciones": [
+      "Conciliación de la medicación.",
+      "Prevención y control de las infecciones relacionadas con la asistencia sanitaria.",
+      "Seguridad en el proceso asistencial gestación-parto-puerperio.",
+      "Seguridad transfusional."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 158,
+    "texto": "¿Qué documento se menciona en la “Estrategia de Seguridad del Paciente 20-30” como el que determinó que las personas atendidas por un sistema medicalizado (tipo 061/112) presentan un mayor porcentaje de incidentes de seguridad en el entorno de Emergencias?",
+    "opciones": [
+      "Estudio Nacional de Efectos Adversos en centros hospitalarios (ENEAS).",
+      "Estudio APEAS.",
+      "Estudio EVADUR.",
+      "Informe del Instituto de Medicina de los Estados Unidos (IOM)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 159,
+    "texto": "El capítulo de Formación de la “Estrategia de Seguridad del Paciente 20-30” señala que, además de impulsar el desarrollo de prácticas seguras, las organizaciones comprometidas orientan sus esfuerzos a aumentar la formación en los llamados:",
+    "opciones": [
+      "Factores humanos o factores no técnicos.",
+      "Factores biomédicos y patofisiológicos.",
+      "Factores económicos y de sostenibilidad.",
+      "Factores organizativos de Osakidetza."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 160,
+    "texto": "¿Cuál de las siguientes Líneas de Acción de la “Estrategia de Seguridad del Paciente 20-30” NO está relacionada con el sistema de utilización del medicamento?",
+    "opciones": [
+      "L5. Conciliación de la medicación.",
+      "L14. Buenas prácticas asociadas a la utilización de medicación.",
+      "L6. Optimización en la prescripción de pruebas diagnósticas que utilizan radiación ionizante.",
+      "L7. Seguridad transfusional (Nota: la seguridad transfusional se considera una línea separada, aunque implica la administración de productos sanguíneos)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 161,
+    "texto": "Según el diagnóstico del II Plan para la Igualdad de Mujeres y Hombres en Osakidetza, ¿qué porcentaje de mujeres y hombres, respectivamente, componía la plantilla total de Osakidetza en enero de 2025?",
+    "opciones": [
+      "60% mujeres y 40% hombres",
+      "75% mujeres y 25% hombres",
+      "80% mujeres y 20% hombres",
+      "90% mujeres y 10% hombres"
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 162,
+    "texto": "Una de las metas del II Plan para la Igualdad de Mujeres y Hombres en Osakidetza es la “CAPACITACIÓN EN IGUALDAD”. ¿Cuál es su objetivo principal?",
+    "opciones": [
+      "Reducir la brecha de género en investigación en un 4%.",
+      "Conseguir que todas las personas trabajadoras de Osakidetza conozcan el Plan y el Protocolo de Acoso.",
+      "Reducir a la mitad las categorías con brecha retributiva superior al 5%.",
+      "Garantizar la formación básica, progresiva, permanente y obligatoria de todo el personal de Osakidetza."
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 163,
+    "texto": "¿Qué institución aprueba el II Plan para la Igualdad de Mujeres y Hombres en Osakidetza (2025-2028)?",
+    "opciones": [
+      "Mesa Sectorial de Sanidad.",
+      "Emakunde.",
+      "Consejo de Administración de Osakidetza.",
+      "Dirección General de Osakidetza."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 164,
+    "texto": "De acuerdo con el II Plan para la Igualdad de Mujeres y Hombres en Osakidetza (2025-2028), ¿qué concepto define, dentro del diagnóstico de la organización, la dificultad invisible que encuentran las mujeres para acceder a puestos de mayor responsabilidad y toma de decisiones?",
+    "opciones": [
+      "Segregación horizontal.",
+      "Suelo pegajoso.",
+      "Brecha salarial técnica",
+      "Techo de cristal."
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 165,
+    "texto": "Una de las Metas del II Plan para la Igualdad de Mujeres y Hombres en Osakidetza (2025-2028) es “CORRESPONSABILIDAD”. ¿Cuál es el objetivo específico asociado a esta meta?",
+    "opciones": [
+      "Reducir el porcentaje de hombres en puestos de dirección.",
+      "Reducir a la mitad la brecha de género en investigación.",
+      "Reducir, al menos, en un 2% la brecha de género existente en las medidas de conciliación para cuidados.",
+      "Aumentar el número de investigaciones con perspectiva de género interseccional en un 4%."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 166,
+    "texto": "¿Cuál fue el objetivo del I Plan de Igualdad, teniendo en cuenta su condición de primer plan estratégico de Osakidetza en esta materia?",
+    "opciones": [
+      "Consolidar los avances logrados y profundizar el proceso transformador.",
+      "Establecer unos cimientos sólidos para garantizar el cumplimiento de la legislación y la alineación a los marcos estratégicos.",
+      "Reducir la brecha salarial a la mitad en todas las categorías profesionales.",
+      "Lograr la aprobación por parte del Consejo de Dirección de Osakidetza en julio de 2025."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 167,
+    "texto": "¿Cuál es la Meta 5 establecida en el II Plan para la Igualdad de Mujeres y Hombres en Osakidetza (2025-2028)?",
+    "opciones": [
+      "Reducir la brecha de género existente en las medidas de conciliación para cuidados.",
+      "Capacitación en Igualdad, garantizando la formación progresiva del personal.",
+      "Igualdad Salarial, con el objetivo de reducir a la mitad las categorías que tienen una brecha retributiva > 5%.",
+      "Investigación, aumentando el número de investigaciones con perspectiva de género."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 168,
+    "texto": "En relación con la violencia machista contra las mujeres, el Plan II Plan para la Igualdad de Mujeres y Hombres en Osakidetza (2025-2028) establece como línea de actuación prioritaria:",
+    "opciones": [
+      "El refuerzo de la prevención, la detección precoz y la mejora de la respuesta asistencial integrada desde el sistema de salud.",
+      "La derivación inmediata de cualquier caso detectado a servicios jurídicos externos, sin intervención del personal sanitario.",
+      "La creación de un registro anónimo donde las personas profesionales puedan denunciar conductas sin seguimiento posterior.",
+      "La limitación de la atención asistencial únicamente a las consecuencias físicas derivadas de la violencia."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 169,
+    "texto": "El III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028 establece respecto a los mensajes audiovisuales que:",
+    "opciones": [
+      "Deben emitirse en la lengua que decidan las personas responsable de las unidades que utilizan estos sistemas audiovisuales.",
+      "Deben emitirse en las dos lenguas oficiales, primero en castellano y luego en euskera.",
+      "Deben emitirse en las dos lenguas oficiales, primero en euskera y luego en castellano.",
+      "Deben emitirse en una de las dos lenguas oficiales."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 170,
+    "texto": "De acuerdo con el III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028, señale la respuesta correcta:",
+    "opciones": [
+      "Por aplicación de la Ley Orgánica de Protección de Datos Personales y garantía de los derechos digitales no puede constar en los datos personales de cada paciente de Osakidetza su idioma de preferencia para las comunicaciones con Osakidetza.",
+      "El signo azul con la letra e indica que la persona paciente no tiene competencia para comunicarse en un idioma que no sea el euskera para las comunicaciones orales con Osakidetza.",
+      "En los datos personales de cada paciente, se registrará su idioma de preferencia para las comunicaciones orales con Osakidetza .",
+      "A las personas que elijan el euskera como lengua prioritaria en sus comunicaciones con Osakidetza solo se les deberá ofrecer servicios en euskera."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 171,
+    "texto": "En atención al III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028, señale la respuesta correcta:",
+    "opciones": [
+      "“Aukeratu zeure hizkuntza/Elige tu lengua” es el lema de la campaña de activación del registro de la lengua preferente de cada paciente llevada a cabo en 2017.",
+      "Se atribuye a todas las direcciones y gerencias de Osakidetza la responsabilidad de realizar la campaña con el lema “Aukeratu zeure hizkuntza/Elige tu lengua”.",
+      "“Aukeratu zeure hizkuntza/Elige tu lengua” es el lema de la campaña de activación del registro de la lengua preferente de cada paciente que realizará Osakidetza durante el primer año de planificación.",
+      "“Aukeratu zeure hizkuntza/Elige tu lengua” es el lema de la campaña de activación del registro de la lengua preferente de cada paciente que realizará Osakidetza durante el tercer año de planificación."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 172,
+    "texto": "El III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028 contempla que tanto en los servicios de recepción y admisión, como en las unidades asistenciales y administrativas a toda la ciudadanía vascohablante debe garantizarse:",
+    "opciones": [
+      "La recepción en euskera.",
+      "La recepción en euskera solo cuando la comunicación oral con pacientes y personas usuarias sea de modo presencial.",
+      "La recepción en euskera solo cuando la comunicación con pacientes y personas usuarias sea telefónicamente.",
+      "La recepción en euskera solo por las y los empleados que sepan en euskera."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 173,
+    "texto": "El III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028 establece que, en los escritos individualizados de respuesta a solicitudes y reclamaciones de pacientes o personas usuarias de Osakidetza se utilizará:",
+    "opciones": [
+      "La lengua utilizada por cada ciudadano o ciudadana.",
+      "Siempre el euskera como lengua preferente.",
+      "Siempre las dos lenguas oficiales independientemente de la lengua utilizada por cada ciudadano o ciudadana.",
+      "Ambas lenguas oficiales, siendo los escritos contestados primero en euskera y luego en castellano."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 174,
+    "texto": "Siguiendo lo previsto en el III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028, señale la respuesta que no es correcta:",
+    "opciones": [
+      "Se pondrá a disposición del personal bilingüe que lo desee diferentes elementos identificativos portadores del circulo azul con la letra e, signo que invita a relacionarse en euskera.",
+      "El signo azul y la letra e solo se utilizará para la identificación individual del personal bilingüe.",
+      "En los centros de salud, consultorios y unidades hospitalarias, deberá estar colocado, de modo visible, el cartel que explica a las personas usuarias el significado del signo identificativo con la letra e.",
+      "Se estudiará introducir una variante del círculo azul con la letra e para el personal dispuesto a que le hablen en euskera pero que muestra dificultades para expresarse en ciertas situaciones."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 175,
+    "texto": "En atención a lo previsto en el III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028, en todos los centros de atención primaria ha de ponerse en marcha un procedimiento para que, en la medida de las posibilidades, se propongan servicios en euskera a las personas pacientes que hayan registrado esta lengua como preferente y que aún reciban los citados servicios en castellano. Señale a qué servicios se refiere el citado Plan:",
+    "opciones": [
+      "Medicina familiar, pediatría, enfermería y salud mental.",
+      "Pediatría, medicina familiar y salud mental.",
+      "Medicina familiar, pediatría, enfermería y matrona.",
+      "Todas las anteriores respuestas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 176,
+    "texto": "Conforme al III Plan de Normalización del Uso del Euskera en Osakidetza 2022-2028:",
+    "opciones": [
+      "En los casos de los mensajes SMS que se envían a los teléfonos móviles de personas trabajadoras o candidatas, estarán escritos en las dos lenguas oficiales, primero en castellano y luego en euskera.",
+      "Los escritos individualizados de respuesta a solicitudes y reclamaciones de las personas trabajadoras deberán redactarse en las dos lenguas oficiales.",
+      "Osakidetza ha de garantizar que la información y los servicios ofrecidos tanto al personal empleado como a personas candidatas a través de las tecnologías de la comunicación estén en las dos lenguas oficiales, con el fin de que cada persona haga uso de la lengua de su preferencia.",
+      "Las informaciones y comunicaciones no personalizadas dirigidas al personal deberán redactarse en las dos lenguas oficiales y se dará prioridad al castellano."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 177,
+    "texto": "Según el Resumen Ejecutivo del Plan Oncológico Integral de Euskadi (POIE) 2025-2030, ¿de qué porcentaje de los fallecimientos en Euskadi fue responsable el cáncer en el año 2023?",
+    "opciones": [
+      "22,3%",
+      "Menos del 15%",
+      "33,8%",
+      "28%"
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 178,
+    "texto": "Según el Resumen Ejecutivo del Plan Oncológico Integral de Euskadi (POIE) 2025-2030, ¿cuáles fueron las dos localizaciones de cáncer más frecuentes en Euskadi en el periodo 2015-2019, consideradas separadamente por sexo?",
+    "opciones": [
+      "Cáncer colorrectal y cáncer de pulmón.",
+      "Cáncer de mama en mujeres y cáncer de próstata en hombres.",
+      "Cáncer de páncreas y cáncer de pulmón.",
+      "Leucemia y Linfoma de Hodgkin."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 179,
+    "texto": "¿Cuál de las siguientes es una de las aspiraciones definidas en la VISIÓN del Plan Oncológico Integral de Euskadi (POIE) 2025-2030?",
+    "opciones": [
+      "Mejorar la calidad de vida de las personas: de pacientes, supervivientes y de sus familiares y personas cuidadoras.",
+      "Aumentar la cuota de mercado de Osakidetza en el sector oncológico privado.",
+      "Garantizar la presencia equilibrada de ambos sexos en los órganos de gestión sanitaria.",
+      "Establecer la telemedicina como la única forma de seguimiento oncológico."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 180,
+    "texto": "La Misión del Plan Oncológico Integral de Euskadi (POIE) 2025-2030 busca generar valor a la ciudadanía vasca en términos de:",
+    "opciones": [
+      "Mayor financiación externa para I+D.",
+      "Menores listas de espera y más personal asistencial.",
+      "Mejores resultados en salud.",
+      "Una mayor supervivencia a los 10 años en todos los tumores."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 181,
+    "texto": "En el Plan Oncológico Integral de Euskadi (POIE) 2025-2030, la “Centralidad de la persona y humanización” como Principio Rector incluye la incorporación de la perspectiva de género y la atención a:",
+    "opciones": [
+      "La telemonitorización avanzada.",
+      "La diversidad.",
+      "El personal profesional no implicado directamente.",
+      "Las redes sociales."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 182,
+    "texto": "Teniendo en cuenta la introducción y el contexto del Plan Oncológico Integral de Euskadi 2025-2030. ¿Cuál fue una de las principales áreas de mejora identificadas en la evaluación del Plan Oncológico de Euskadi (POE) 2018- 2023?",
+    "opciones": [
+      "La excesiva visibilidad del plan entre profesionales sin implicación.",
+      "La necesidad de aumentar el número de Comités de Tumores.",
+      "La necesidad de reforzar la atención a colectivos específicos (infancia, mayores, personas largas supervivientes).",
+      "La ausencia total de un modelo asistencial común."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 183,
+    "texto": "Según el listado de acrónimos del Plan Oncológico Integral de Euskadi (POIE) 2025-2030, ¿a qué hacen referencia las siglas PROMs?",
+    "opciones": [
+      "Plan de Resultados Oncológicos y Metodología de Seguimiento.",
+      "Plan de Riesgos Ocupacionales en Medicina Sanitaria.",
+      "Programa de Rehabilitación Oncológica y Mejora de la Supervivencia.",
+      "Medidas de Resultados Reportadas por los y las Pacientes."
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 184,
+    "texto": "El Plan Oncológico Integral de Euskadi (POIE) 2025-2030 se alinea con el Plan de Salud de Euskadi 2030. ¿Cuál de las siguientes es una de las prioridades estratégicas de dicho Plan de Salud mencionadas en el documento?",
+    "opciones": [
+      "Creación de una red de servicios privados de salud.",
+      "Aumentar la esperanza de vida a 90 años.",
+      "Reducir la morbimortalidad evitable y disminuir las desigualdades en salud",
+      "Eliminación total del cáncer infantil antes de 2030."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 185,
+    "texto": "¿Cuál es el objeto fundamental de la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, según su Artículo 1?",
+    "opciones": [
+      "Regular los cuidados paliativos avanzados en el Sistema Nacional de Salud.",
+      "Modificar el Código Penal para despenalizar la asistencia al suicidio.",
+      "Regular el derecho de toda persona a solicitar y recibir la prestación de ayuda para morir y la obligación de las Administraciones de garantizarla.",
+      "Establecer el registro de las voluntades anticipadas y testamentos vitales."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 186,
+    "texto": "Conforme al Artículo 5 de la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿qué requisito de nacionalidad se exige para poder recibir la prestación de ayuda para morir?",
+    "opciones": [
+      "Tener la ciudadanía española con residencia legal ininterrumpida de al menos 10 años.",
+      "Tener la nacionalidad española o tener residencia legal en España de al menos 5 años.",
+      "Ser mayor de edad y tener la nacionalidad española, residencia legal o certificado de empadronamiento que acredite un tiempo de permanencia superior a 12 meses en territorio español.",
+      "Tener la nacionalidad española y residencia en el mismo municipio durante los últimos 2 años."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 187,
+    "texto": "Según la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿qué concepto define la ley como la \"administración directa a la persona paciente de una sustancia por parte del personal sanitario competente\"?",
+    "opciones": [
+      "Suicidio médicamente asistido.",
+      "Sedación paliativa profunda.",
+      "Eutanasia.",
+      "Asistencia para morir."
+    ],
+    "correcta": 3
+  },
+  {
+    "id": 188,
+    "texto": "Según el Artículo 5 de la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿cuál es la condición que debe padecer la persona paciente para solicitar la prestación de ayuda para morir?",
+    "opciones": [
+      "Padecer una enfermedad incurable en fase terminal o un deterioro funcional grave.",
+      "Sufrir una enfermedad que limite gravemente su autonomía.",
+      "Padecer una enfermedad grave e incurable o un padecimiento grave, crónico e imposibilitante, causantes de un sufrimiento intolerable.",
+      "Sufrir un dolor físico o psíquico que no puede ser tratado con paliativos."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 189,
+    "texto": "Según la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿cuál debe ser la periodicidad mínima con la que el personal facultativo responsable debe consultar a la persona paciente, una vez presentada la solicitud, para confirmar si mantiene su deseo?",
+    "opciones": [
+      "Al menos cada 7 días.",
+      "Al menos cada 15 días, debiendo dejarse constancia en la historia clínica.",
+      "Al menos cada 30 días, si el procedimiento se extiende.",
+      "Una única vez antes de la prestación."
+    ],
+    "correcta": null
+  },
+  {
+    "id": 190,
+    "texto": "Según la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿cuál es el derecho que asiste al personal sanitario directamente implicado en la prestación de ayuda para morir?",
+    "opciones": [
+      "Derecho a la reubicación en un puesto de trabajo diferente.",
+      "Derecho a un incremento salarial por la complejidad de la prestación.",
+      "Derecho a la objeción de conciencia.",
+      "Derecho a recibir asistencia jurídica de oficio."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 191,
+    "texto": "Según la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿qué define como \"padecimiento grave, crónico e imposibilitante\"?",
+    "opciones": [
+      "Aquel que implica la existencia de sufrimiento físico o psíquico constante.",
+      "Aquel que genera una limitación que incide directamente sobre la autonomía física y capacidad de expresar su voluntad de la persona paciente.",
+      "La dependencia de otra persona para la realización de al menos dos actividades básicas de la vida diaria.",
+      "Una dolencia que ha sido declarada irreversible y con un pronóstico de vida inferior a seis meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 192,
+    "texto": "Según la Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia, ¿cuál es el plazo que tiene la persona facultativa responsable para comunicar la resolución favorable a la Comisión de Garantía y Evaluación para su posterior verificación?",
+    "opciones": [
+      "Dentro de las 24 horas siguientes a la resolución.",
+      "Dentro del día siguiente natural a la resolución.",
+      "7 días desde la resolución favorable.",
+      "No existe un plazo establecido para esta comunicación."
+    ],
+    "correcta": null
+  },
+  {
+    "id": 193,
+    "texto": "¿Cuál es el principio general que establece la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas?",
+    "opciones": [
+      "La libre acumulación de empleos públicos.",
+      "La incompatibilidad para desempeñar más de un puesto en el sector público, salvo excepciones.",
+      "La compatibilidad automática entre empleo público y privado.",
+      "La compatibilidad solo en el ámbito sanitario."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 194,
+    "texto": "Con carácter general, el personal comprendido en la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, podrá desempeñar:",
+    "opciones": [
+      "Dos puestos públicos si uno es a tiempo parcial.",
+      "Un segundo puesto público únicamente con autorización previa y en los supuestos previstos por la Ley.",
+      "Cualquier actividad privada sin limitación.",
+      "Dos puestos públicos si pertenecen a distinta Administración."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 195,
+    "texto": "Según la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, ¿qué requisito es imprescindible para autorizar la compatibilidad con una actividad privada?",
+    "opciones": [
+      "Que la actividad sea sanitaria.",
+      "Que no se supere la jornada ordinaria establecida.",
+      "Que no se comprometa la imparcialidad o independencia del personal público.",
+      "Que lo autorice la jefatura inmediata sin más trámites."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 196,
+    "texto": "Según la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, ¿puede percibirse más de una remuneración con cargo a los presupuestos públicos?",
+    "opciones": [
+      "Sí, siempre que no superen el salario mínimo.",
+      "No, salvo en los casos expresamente previstos en la Ley.",
+      "Sí, sin limitación alguna.",
+      "Solo si se trata de diferentes Administraciones autonómicas."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 197,
+    "texto": "Según la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, ¿qué ocurre si se desempeña una actividad incompatible sin autorización?",
+    "opciones": [
+      "No ocurre nada si es fuera del horario laboral.",
+      "Se considera falta leve.",
+      "Puede dar lugar a responsabilidad disciplinaria.",
+      "Solo se devuelve la remuneración percibida."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 198,
+    "texto": "Según la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, ¿qué actividades están exceptuadas del régimen general de incompatibilidades?",
+    "opciones": [
+      "Las actividades docentes o de investigación en determinados supuestos.",
+      "Cualquier actividad privada.",
+      "Solo actividades artísticas.",
+      "Actividades comerciales propias sin límite."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 199,
+    "texto": "Según la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, para que se autorice la compatibilidad para un segundo puesto público es necesario que:",
+    "opciones": [
+      "Sea en el mismo centro de trabajo.",
+      "Sea la jornada completa.",
+      "Sea en los supuestos tasados y no se modifique la jornada y horario del puesto principal.",
+      "Lo apruebe el personal trabajador del servicio."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 200,
+    "texto": "La finalidad principal de la Ley 53/1984, de 26 de diciembre, de Incompatibilidades del personal al servicio de las Administraciones Públicas, es:",
+    "opciones": [
+      "Incrementar los ingresos del personal público.",
+      "Garantizar la dedicación y la imparcialidad en el servicio público.",
+      "Permitir la pluriactividad generalizada.",
+      "Reducir el número de personal público."
+    ],
+    "correcta": 1
   }
 ]
