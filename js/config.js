@@ -1,5 +1,6 @@
 export const QUIZ_CONFIG = {
-  dataUrl: "/OPApp/preguntas.json",
+  dataUrlEnfermeria: "./preguntas.json",
+  dataUrlComunes: "./preguntas-comunes.json",
   transitionMs: 1500,
   preguntasPorTest: 10,
 };

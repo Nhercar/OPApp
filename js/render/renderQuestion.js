@@ -1,5 +1,6 @@
 import { ui } from "../dom.js";
 import { limpiarAccionPregunta, ocultarResumen, actualizarBotonSiguiente, setEstado } from "./renderUI.js";
+import { renderMapaPreguntasEjecucion } from "./renderResults.js";
 
 const construirContenidoOpcion = (texto, indice) => {
   const letra = String.fromCharCode(65 + indice);
@@ -19,14 +20,30 @@ export const renderPregunta = ({
   pregunta,
   preguntaActual,
   totalPreguntas,
+  preguntas = [],
+  respuestas = [],
   onOptionClick,
+  onNavigateQuestion,
   modoTest = false,
+  mostrarMapaPreguntas = false,
+  registroActual = null,
 }) => {
   ui.pregunta.textContent = pregunta.texto;
   ui.opciones.innerHTML = "";
   limpiarAccionPregunta();
-  ocultarResumen();
-  actualizarBotonSiguiente(false);
+  if (mostrarMapaPreguntas) {
+    renderMapaPreguntasEjecucion({
+      preguntas,
+      respuestas,
+      preguntaActual,
+      onNavigateQuestion,
+    });
+  } else {
+    ocultarResumen();
+  }
+
+  const hayRespuestaGuardada = Boolean(registroActual && !registroActual.omitted);
+  actualizarBotonSiguiente(hayRespuestaGuardada);
   setEstado(
     modoTest
       ? `Pregunta ${preguntaActual + 1} de ${totalPreguntas} · Modo test`
@@ -41,6 +58,17 @@ export const renderPregunta = ({
     const { clave, contenido } = construirContenidoOpcion(opcion, indice);
     boton.append(clave, contenido);
     boton.addEventListener("click", () => onOptionClick(indice, boton));
+
+    if (hayRespuestaGuardada) {
+      boton.disabled = true;
+      if (indice === registroActual.selectedOptionIndex) {
+        boton.classList.add(registroActual.isCorrect ? "correcto" : "incorrecto");
+      }
+
+      if (!registroActual.isCorrect && indice === pregunta.correcta) {
+        boton.classList.add("revelada");
+      }
+    }
 
     ui.opciones.appendChild(boton);
   });

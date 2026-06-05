@@ -52,14 +52,33 @@ export const avanzarPregunta = () => {
 
 export const renderPreguntaActual = () => {
   const pregunta = state.preguntas[state.preguntaActual];
+  const registroActual = state.respuestas[state.preguntaActual] ?? null;
 
   renderPregunta({
     pregunta,
     preguntaActual: state.preguntaActual,
     totalPreguntas: state.preguntas.length,
+    preguntas: state.preguntas,
+    respuestas: state.respuestas,
     onOptionClick: manejarRespuesta,
+    onNavigateQuestion: navegarAPregunta,
     modoTest: state.modoTest,
+    mostrarMapaPreguntas: !state.modoTest,
+    registroActual,
   });
+};
+
+export const navegarAPregunta = (orderIndex) => {
+  if (orderIndex === state.preguntaActual) {
+    return;
+  }
+
+  if (!state.modoTest && !state.respuestas[state.preguntaActual]) {
+    registrarOmitidaActual();
+  }
+
+  state.preguntaActual = orderIndex;
+  renderPreguntaActual();
 };
 
 export const renderFinalCompleto = () => {
@@ -177,6 +196,7 @@ export const volverAlInicio = () => {
   state.modoTest = Boolean(ajustes.modoTest);
   ui.modoTestSwitch.checked = Boolean(ajustes.modoTest);
   ui.soloNoVistasSwitch.checked = Boolean(ajustes.soloNoVistas);
+  ui.preguntasComunesSwitch.checked = Boolean(ajustes.preguntasComunes);
   ui.rangeStart.value = ajustes.rangeStart ?? "";
   ui.rangeEnd.value = ajustes.rangeEnd ?? "";
   actualizarLabelRepasoInicio();

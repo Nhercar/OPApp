@@ -8,6 +8,7 @@ export const state = {
   seleccionActual: null,
   respuestas: [],
   cargado: false,
+  fuenteBancoActual: null,
 };
 
 export const resetearEstadoTest = () => {

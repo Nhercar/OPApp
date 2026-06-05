@@ -22,6 +22,25 @@ const marcarBotonResumenActivo = (orderIndex) => {
   });
 };
 
+const obtenerEstadoPregunta = (registro) => {
+  if (!registro) {
+    return "Pendiente";
+  }
+
+  if (registro.omitted) {
+    return "Omitida";
+  }
+
+  return registro.isCorrect ? "Correcta" : "Incorrecta";
+};
+
+const actualizarTituloResumen = (texto) => {
+  const titulo = ui.resumen.querySelector(".resumen__titulo");
+  if (titulo) {
+    titulo.textContent = texto;
+  }
+};
+
 export const renderFinal = ({ puntuacion, totalPreguntas }) => {
   ui.opciones.innerHTML = "";
   ocultarBotonSiguiente();
@@ -58,6 +77,7 @@ export const renderBotonesAccionFinal = ({
 
 export const renderResumenFinal = ({ respuestas, onReview }) => {
   ui.resumen.hidden = false;
+  actualizarTituloResumen("Resumen por pregunta");
   ui.resumenBotones.innerHTML = "";
 
   respuestas
@@ -79,6 +99,44 @@ export const renderResumenFinal = ({ respuestas, onReview }) => {
 
       ui.resumenBotones.appendChild(botonResumen);
     });
+};
+
+export const renderMapaPreguntasEjecucion = ({ preguntas, respuestas, preguntaActual, onNavigateQuestion }) => {
+  ui.resumen.hidden = false;
+  actualizarTituloResumen("Mapa de preguntas");
+  ui.resumenBotones.innerHTML = "";
+
+  const contenedor = document.createElement("div");
+  contenedor.className = "resumen-mapa";
+
+  const texto = document.createElement("span");
+  texto.className = "resumen-mapa__texto";
+  texto.textContent = "Navegación del test";
+
+  const barra = document.createElement("div");
+  barra.className = "resumen-mapa__barra";
+
+  preguntas.forEach((pregunta, index) => {
+    const registro = respuestas[index];
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = `resumen-mapa__boton ${
+      registro?.omitted ? "omitida" : registro?.isCorrect ? "correcto" : registro ? "incorrecto" : "pendiente"
+    }`;
+    boton.textContent = String(index + 1);
+    boton.title = `${index + 1}. ${obtenerEstadoPregunta(registro)}`;
+    boton.setAttribute("aria-label", `Ir a la pregunta ${index + 1}, ${obtenerEstadoPregunta(registro)}`);
+
+    if (index === preguntaActual) {
+      boton.classList.add("activo");
+    }
+
+    boton.addEventListener("click", () => onNavigateQuestion(index));
+    barra.appendChild(boton);
+  });
+
+  contenedor.append(texto, barra);
+  ui.resumenBotones.appendChild(contenedor);
 };
 
 export const renderRevisionPregunta = ({

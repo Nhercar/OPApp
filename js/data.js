@@ -1,7 +1,7 @@
 import { QUIZ_CONFIG } from "./config.js";
 
-export const cargarPreguntasDesdeFuente = async () => {
-  const response = await fetch(QUIZ_CONFIG.dataUrl);
+export const cargarPreguntasDesdeFuente = async (dataUrl = QUIZ_CONFIG.dataUrlEnfermeria) => {
+  const response = await fetch(dataUrl);
 
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}`);
