@@ -84,6 +84,9 @@ export const renderBotonesAccionFinal = ({
 export const renderResumenFinal = ({ respuestas, onReview }) => {
   ui.resumen.hidden = false;
   actualizarTituloResumen("Resumen por pregunta");
+  // Remove any standalone acciones block placed under puntuacion
+  const accionesExistentes = document.querySelector(".resumen-mapa__acciones");
+  if (accionesExistentes) accionesExistentes.remove();
   ui.resumenBotones.innerHTML = "";
 
   respuestas
@@ -117,6 +120,9 @@ export const renderMapaPreguntasEjecucion = ({
   ui.resumen.hidden = false;
   actualizarTituloResumen("Mapa de preguntas");
   ui.resumenBotones.innerHTML = "";
+  // Ensure no leftover acciones elsewhere
+  const existingAcciones = document.querySelector(".resumen-mapa__acciones");
+  if (existingAcciones) existingAcciones.remove();
 
   const acciones = document.createElement("div");
   acciones.className = "resumen-mapa__acciones";
@@ -128,7 +134,14 @@ export const renderMapaPreguntasEjecucion = ({
   botonInicio.addEventListener("click", onBackHome);
 
   acciones.appendChild(botonInicio);
-  ui.resumenBotones.appendChild(acciones);
+  // Insert acciones below the puntuacion element (before the resumen section)
+  const footer = ui.puntuacion?.parentNode || document.querySelector('footer');
+  if (footer && ui.resumen) {
+    footer.insertBefore(acciones, ui.resumen);
+  } else {
+    // Fallback: append into resumen botones
+    ui.resumenBotones.appendChild(acciones);
+  }
 
   const contenedor = document.createElement("details");
   contenedor.className = "resumen-mapa resumen-mapa--desplegable";
