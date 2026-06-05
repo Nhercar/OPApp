@@ -17,6 +17,7 @@ export const ui = {
   pregunta: document.querySelector("#pregunta"),
   preguntaAccion: document.querySelector("#preguntaAccion"),
   opciones: document.querySelector("#opciones"),
+  volverInicioBtn: document.querySelector("#volverInicioBtn"),
   siguienteBtn: document.querySelector("#siguienteBtn"),
   puntuacion: document.querySelector("#puntuacion"),
   resumen: document.querySelector("#resumen"),

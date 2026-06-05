@@ -1,5 +1,10 @@
 import { ui } from "../dom.js";
-import { limpiarAccionPregunta, ocultarResumen, actualizarBotonSiguiente, setEstado } from "./renderUI.js";
+import {
+  limpiarAccionPregunta,
+  ocultarResumen,
+  actualizarBotonSiguiente,
+  setEstado,
+} from "./renderUI.js";
 import { renderMapaPreguntasEjecucion } from "./renderResults.js";
 
 const construirContenidoOpcion = (texto, indice) => {
@@ -27,6 +32,7 @@ export const renderPregunta = ({
   modoTest = false,
   mostrarMapaPreguntas = false,
   registroActual = null,
+  onBackHome,
 }) => {
   ui.pregunta.textContent = pregunta.texto;
   ui.opciones.innerHTML = "";
@@ -37,6 +43,7 @@ export const renderPregunta = ({
       respuestas,
       preguntaActual,
       onNavigateQuestion,
+      onBackHome,
     });
   } else {
     ocultarResumen();

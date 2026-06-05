@@ -1,5 +1,10 @@
 import { ui } from "../dom.js";
-import { limpiarAccionPregunta, ocultarBotonSiguiente, setEstado } from "./renderUI.js";
+import {
+  limpiarAccionPregunta,
+  ocultarBotonSiguiente,
+  ocultarBotonVolverInicio,
+  setEstado,
+} from "./renderUI.js";
 
 const construirContenidoOpcion = (texto, indice) => {
   const letra = String.fromCharCode(65 + indice);
@@ -44,6 +49,7 @@ const actualizarTituloResumen = (texto) => {
 export const renderFinal = ({ puntuacion, totalPreguntas }) => {
   ui.opciones.innerHTML = "";
   ocultarBotonSiguiente();
+  ocultarBotonVolverInicio();
   ui.pregunta.textContent = "Quiz finalizado";
   setEstado("Completado");
   ui.puntuacion.textContent = `Has acertado ${puntuacion} de ${totalPreguntas}`;
@@ -101,17 +107,24 @@ export const renderResumenFinal = ({ respuestas, onReview }) => {
     });
 };
 
-export const renderMapaPreguntasEjecucion = ({ preguntas, respuestas, preguntaActual, onNavigateQuestion }) => {
+export const renderMapaPreguntasEjecucion = ({
+  preguntas,
+  respuestas,
+  preguntaActual,
+  onNavigateQuestion,
+  onBackHome,
+}) => {
   ui.resumen.hidden = false;
   actualizarTituloResumen("Mapa de preguntas");
   ui.resumenBotones.innerHTML = "";
 
-  const contenedor = document.createElement("div");
-  contenedor.className = "resumen-mapa";
+  const contenedor = document.createElement("details");
+  contenedor.className = "resumen-mapa resumen-mapa--desplegable";
+  contenedor.open = true;
 
-  const texto = document.createElement("span");
-  texto.className = "resumen-mapa__texto";
-  texto.textContent = "Navegación del test";
+  const resumen = document.createElement("summary");
+  resumen.className = "resumen-mapa__summary";
+  resumen.textContent = "Navegación del test";
 
   const barra = document.createElement("div");
   barra.className = "resumen-mapa__barra";
@@ -135,7 +148,17 @@ export const renderMapaPreguntasEjecucion = ({ preguntas, respuestas, preguntaAc
     barra.appendChild(boton);
   });
 
-  contenedor.append(texto, barra);
+  const acciones = document.createElement("div");
+  acciones.className = "resumen-mapa__acciones";
+
+  const botonInicio = document.createElement("button");
+  botonInicio.type = "button";
+  botonInicio.className = "accion-btn secundario quiz-back";
+  botonInicio.textContent = "Volver al inicio";
+  botonInicio.addEventListener("click", onBackHome);
+
+  acciones.appendChild(botonInicio);
+  contenedor.append(resumen, barra, acciones);
   ui.resumenBotones.appendChild(contenedor);
 };
 

@@ -17,6 +17,7 @@ import {
   mostrarInicio,
   limpiarAccionPregunta,
   ocultarResumen,
+  ocultarBotonVolverInicio,
 } from "../render/renderUI.js";
 
 import {
@@ -65,6 +66,7 @@ export const renderPreguntaActual = () => {
     modoTest: state.modoTest,
     mostrarMapaPreguntas: !state.modoTest,
     registroActual,
+    onBackHome: volverAlInicio,
   });
 };
 
@@ -214,6 +216,7 @@ export const volverAlInicio = () => {
   limpiarAccionPregunta();
   ocultarResumen();
   ocultarBotonSiguiente();
+  ocultarBotonVolverInicio();
   setEstado(state.cargado ? "Listo para iniciar" : "Error de carga");
   mostrarInicio();
 };

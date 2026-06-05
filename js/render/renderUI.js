@@ -18,6 +18,9 @@ export const mostrarQuiz = () => {
   ui.inicio.hidden = true;
   ui.quiz.hidden = false;
   ui.resultado.hidden = false;
+  if (ui.volverInicioBtn) {
+    ui.volverInicioBtn.hidden = false;
+  }
 };
 
 export const limpiarAccionPregunta = () => {
@@ -51,6 +54,18 @@ export const mostrarBotonSiguiente = () => {
 
 export const ocultarBotonSiguiente = () => {
   ui.siguienteBtn.hidden = true;
+};
+
+export const mostrarBotonVolverInicio = () => {
+  if (ui.volverInicioBtn) {
+    ui.volverInicioBtn.hidden = false;
+  }
+};
+
+export const ocultarBotonVolverInicio = () => {
+  if (ui.volverInicioBtn) {
+    ui.volverInicioBtn.hidden = true;
+  }
 };
 
 export const revelarCorrecta = (indiceCorrecto) => {

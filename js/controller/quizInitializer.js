@@ -15,7 +15,7 @@ import {
   leerAjustes,
   guardarAjustes,
 } from "./storageManager.js";
-import { iniciarIntentoConPreguntas, avanzarConBoton } from "./quizFlow.js";
+import { iniciarIntentoConPreguntas, avanzarConBoton, volverAlInicio } from "./quizFlow.js";
 
 const leerNumeroONull = (valor) => {
   const numero = Number(valor);
@@ -246,6 +246,9 @@ export const initQuizApp = () => {
   }
   ui.iniciarBtn.addEventListener("click", iniciarTest);
   ui.siguienteBtn.addEventListener("click", avanzarConBoton);
+  if (ui.volverInicioBtn) {
+    ui.volverInicioBtn.addEventListener("click", volverAlInicio);
+  }
   ui.repasarFallosBtn.addEventListener("click", iniciarRepasoFallos);
   console.log("✅ Event listeners agregados");
   cargarPreguntas();
