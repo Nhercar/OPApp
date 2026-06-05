@@ -118,6 +118,18 @@ export const renderMapaPreguntasEjecucion = ({
   actualizarTituloResumen("Mapa de preguntas");
   ui.resumenBotones.innerHTML = "";
 
+  const acciones = document.createElement("div");
+  acciones.className = "resumen-mapa__acciones";
+
+  const botonInicio = document.createElement("button");
+  botonInicio.type = "button";
+  botonInicio.className = "accion-btn secundario quiz-back";
+  botonInicio.textContent = "Volver al inicio";
+  botonInicio.addEventListener("click", onBackHome);
+
+  acciones.appendChild(botonInicio);
+  ui.resumenBotones.appendChild(acciones);
+
   const contenedor = document.createElement("details");
   contenedor.className = "resumen-mapa resumen-mapa--desplegable";
   contenedor.open = true;
@@ -148,17 +160,7 @@ export const renderMapaPreguntasEjecucion = ({
     barra.appendChild(boton);
   });
 
-  const acciones = document.createElement("div");
-  acciones.className = "resumen-mapa__acciones";
-
-  const botonInicio = document.createElement("button");
-  botonInicio.type = "button";
-  botonInicio.className = "accion-btn secundario quiz-back";
-  botonInicio.textContent = "Volver al inicio";
-  botonInicio.addEventListener("click", onBackHome);
-
-  acciones.appendChild(botonInicio);
-  contenedor.append(resumen, barra, acciones);
+  contenedor.append(resumen, barra);
   ui.resumenBotones.appendChild(contenedor);
 };
 

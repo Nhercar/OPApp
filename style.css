@@ -464,7 +464,7 @@ background: #0857a5;
 .resumen-mapa__acciones {
   display: flex;
   justify-content: center;
-  padding-top: 0.25rem;
+  margin-bottom: 0.55rem;
 }
 
 .quiz-back {
