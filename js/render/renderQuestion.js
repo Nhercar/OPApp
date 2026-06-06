@@ -34,7 +34,8 @@ export const renderPregunta = ({
   registroActual = null,
   onBackHome,
 }) => {
-  ui.pregunta.textContent = pregunta.texto;
+  const numeroPregunta = pregunta.id ?? preguntaActual + 1;
+  ui.pregunta.textContent = `Pregunta ${numeroPregunta}. ${pregunta.texto}`;
   ui.opciones.innerHTML = "";
   limpiarAccionPregunta();
   if (mostrarMapaPreguntas) {
@@ -53,8 +54,8 @@ export const renderPregunta = ({
   actualizarBotonSiguiente(hayRespuestaGuardada);
   setEstado(
     modoTest
-      ? `Pregunta ${preguntaActual + 1} de ${totalPreguntas} · Modo test`
-      : `Pregunta ${preguntaActual + 1} de ${totalPreguntas}`
+      ? `Pregunta ${numeroPregunta} de ${totalPreguntas} · Modo test`
+      : `Pregunta ${numeroPregunta} de ${totalPreguntas}`
   );
 
   pregunta.opciones.forEach((opcion, indice) => {

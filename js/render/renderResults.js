@@ -81,7 +81,7 @@ export const renderBotonesAccionFinal = ({
   ui.preguntaAccion.hidden = false;
 };
 
-export const renderResumenFinal = ({ respuestas, onReview, onBackHome }) => {
+export const renderResumenFinal = ({ respuestas, onReview, onBackHome, }) => {
   ui.resumen.hidden = false;
   actualizarTituloResumen("Resumen por pregunta");
   // Remove any standalone acciones block placed under puntuacion
@@ -101,20 +101,12 @@ export const renderResumenFinal = ({ respuestas, onReview, onBackHome }) => {
       const botonResumen = document.createElement("button");
       botonResumen.type = "button";
       botonResumen.className = `resumen-btn ${estadoClase}`;
-      botonResumen.textContent = String(registro.orderIndex + 1);
+      botonResumen.textContent = String(registro.questionId ?? registro.orderIndex + 1);
       botonResumen.dataset.order = String(registro.orderIndex);
-      botonResumen.setAttribute("aria-label", `Pregunta ${registro.orderIndex + 1}`);
+      botonResumen.setAttribute("aria-label", `Pregunta ${registro.questionId ?? registro.orderIndex + 1}`);
       botonResumen.addEventListener("click", () => onReview(registro.orderIndex));
 
       ui.resumenBotones.appendChild(botonResumen);
-
-    const botonInicio = document.createElement("button");
-    botonInicio.type = "button";
-    botonInicio.className = "accion-btn secundario quiz-back";
-    botonInicio.textContent = "Volver";
-    botonInicio.addEventListener("click", onBackHome);
-
-    ui.resumenBotoones.appendChild(botonInicio);
     });
 };
 
@@ -164,14 +156,15 @@ export const renderMapaPreguntasEjecucion = ({
 
   preguntas.forEach((pregunta, index) => {
     const registro = respuestas[index];
+    const numeroPregunta = pregunta.id ?? index + 1;
     const boton = document.createElement("button");
     boton.type = "button";
     boton.className = `resumen-mapa__boton ${
       registro?.omitted ? "omitida" : registro?.isCorrect ? "correcto" : registro ? "incorrecto" : "pendiente"
     }`;
-    boton.textContent = String(index + 1);
-    boton.title = `${index + 1}. ${obtenerEstadoPregunta(registro)}`;
-    boton.setAttribute("aria-label", `Ir a la pregunta ${index + 1}, ${obtenerEstadoPregunta(registro)}`);
+    boton.textContent = String(numeroPregunta);
+    boton.title = `${numeroPregunta}. ${obtenerEstadoPregunta(registro)}`;
+    boton.setAttribute("aria-label", `Ir a la pregunta ${numeroPregunta}, ${obtenerEstadoPregunta(registro)}`);
 
     if (index === preguntaActual) {
       boton.classList.add("activo");
