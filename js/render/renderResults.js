@@ -111,7 +111,7 @@ export const renderResumenFinal = ({ respuestas, onReview }) => {
     const botonInicio = document.createElement("button");
     botonInicio.type = "button";
     botonInicio.className = "accion-btn secundario quiz-back";
-    botonInicio.textContent = "Volver al inicio";
+    botonInicio.textContent = "Volver";
     botonInicio.addEventListener("click", onBackHome);
 
     ui.resumenBotoones.appendChild(botonInicio);
