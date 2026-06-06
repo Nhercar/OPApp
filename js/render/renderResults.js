@@ -81,7 +81,7 @@ export const renderBotonesAccionFinal = ({
   ui.preguntaAccion.hidden = false;
 };
 
-export const renderResumenFinal = ({ respuestas, onReview }) => {
+export const renderResumenFinal = ({ respuestas, onReview, onBackHome }) => {
   ui.resumen.hidden = false;
   actualizarTituloResumen("Resumen por pregunta");
   // Remove any standalone acciones block placed under puntuacion
