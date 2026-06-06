@@ -35,7 +35,7 @@ export const renderPregunta = ({
   onBackHome,
 }) => {
   const numeroPregunta = pregunta.id ?? preguntaActual + 1;
-  ui.pregunta.textContent = `Pregunta ${numeroPregunta}. ${pregunta.texto}`;
+  ui.pregunta.textContent = `${numeroPregunta}. ${pregunta.texto}`;
   ui.opciones.innerHTML = "";
   limpiarAccionPregunta();
   if (mostrarMapaPreguntas) {
