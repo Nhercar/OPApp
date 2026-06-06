@@ -3366,6 +3366,17 @@
     "correcta": 0
   },
   {
+    "id": 308,
+    "texto": "Según la evidencia recogida en el VIII Plan sobre Adicciones de Euskadi, ¿cuál de las siguientes intervenciones en el ámbito comunitario presenta el MAYOR nivel de eficacia?",
+    "opciones":[
+      "Campañas de comunicación en medios tradicionales.",
+      "Intervenciones breves o entrevistas motivacionales.",
+      "Mentoría o intervención de pares.",
+      "Intervenciones con mujeres embarazadas en la comunidad."
+    ],
+    "correcta": 2
+  },
+  {
     "id": 307,
     "texto": "En relación con el uso de videojuegos y tecnologías digitales entre adolescentes en Euskadi, según los datos más recientes disponibles, ¿cuál de las siguientes afirmaciones es CORRECTA?",
     "opciones": [
