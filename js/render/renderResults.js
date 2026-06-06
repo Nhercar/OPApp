@@ -135,14 +135,14 @@ export const renderMapaPreguntasEjecucion = ({
   const acciones = document.createElement("div");
   acciones.className = "resumen-mapa__acciones";
 
-  // const botonInicio = document.createElement("button");
-  // botonInicio.type = "button";
-  // botonInicio.className = "accion-btn secundario quiz-back";
-  // botonInicio.textContent = "Volver al inicio";
-  // botonInicio.addEventListener("click", onBackHome);
+  const botonInicio = document.createElement("button");
+  botonInicio.type = "button";
+  botonInicio.className = "accion-btn secundario quiz-back";
+  botonInicio.textContent = "Volver al inicio";
+  botonInicio.addEventListener("click", onBackHome);
 
-  // acciones.appendChild(botonInicio);
-  // Insert acciones below the puntuacion element (before the resumen section)
+  acciones.appendChild(botonInicio);
+  Insert acciones below the puntuacion element (before the resumen section)
   const footer = ui.puntuacion?.parentNode || document.querySelector('footer');
   if (footer && ui.resumen) {
     footer.insertBefore(acciones, ui.resumen);
