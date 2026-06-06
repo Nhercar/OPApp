@@ -142,7 +142,7 @@ export const renderMapaPreguntasEjecucion = ({
   botonInicio.addEventListener("click", onBackHome);
 
   acciones.appendChild(botonInicio);
-  Insert acciones below the puntuacion element (before the resumen section)
+  // Insert acciones below the puntuacion element (before the resumen section)
   const footer = ui.puntuacion?.parentNode || document.querySelector('footer');
   if (footer && ui.resumen) {
     footer.insertBefore(acciones, ui.resumen);
