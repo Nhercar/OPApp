@@ -1,5 +1,5 @@
 export const QUIZ_CONFIG = {
-  dataUrlEnfermeria: "./preguntas_pruebajson",
+  dataUrlEnfermeria: "./preguntas_prueba.json",
   dataUrlComunes: "./preguntas-comunes.json",
   transitionMs: 1500,
   preguntasPorTest: 10,
