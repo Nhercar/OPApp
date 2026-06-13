@@ -1878,7 +1878,7 @@
       "“Aukeratu zeure hizkuntza/Elige tu lengua” es el lema de la campaña de activación del registro de la lengua preferente de cada paciente que realizará Osakidetza durante el primer año de planificación.",
       "“Aukeratu zeure hizkuntza/Elige tu lengua” es el lema de la campaña de activación del registro de la lengua preferente de cada paciente que realizará Osakidetza durante el tercer año de planificación."
     ],
-    "correcta": 2
+    "correcta": 0
   },
   {
     "id": 172,
@@ -2076,7 +2076,7 @@
       "Al menos cada 30 días, si el procedimiento se extiende.",
       "Una única vez antes de la prestación."
     ],
-    "correcta": null
+    "correcta": 1
   },
   {
     "id": 190,
