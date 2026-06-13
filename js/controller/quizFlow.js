@@ -79,6 +79,8 @@ export const navegarAPregunta = (orderIndex) => {
     registrarOmitidaActual();
   }
 
+  state.bloqueado = false;
+  state.seleccionActual = null;
   state.preguntaActual = orderIndex;
   renderPreguntaActual();
 };
