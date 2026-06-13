@@ -32,7 +32,7 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/preguntas.json"
+  for = "/preguntas_pruebajson"
   [headers.values]
     Cache-Control = "public, max-age=3600"
 

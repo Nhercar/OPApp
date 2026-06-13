@@ -5,7 +5,7 @@ const URLS_TO_CACHE = [
   './index.html',
   './app.js',
   './style.css',
-  './preguntas.json',
+  './preguntas_pruebajson',
   './js/config.js',
   './js/data.js',
   './js/dom.js',
@@ -75,7 +75,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Para preguntas.json priorizamos red para no quedarnos con datos antiguos.
-  if (url.pathname.endsWith('/preguntas.json')) {
+  if (url.pathname.endsWith('/preguntas_pruebajson')) {
     event.respondWith(
       fetch(request)
         .then((networkResponse) => {
