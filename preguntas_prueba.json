@@ -5182,9 +5182,9 @@
   },
   {
     "id": 472,
-    "texto": "En un estudio sobre la incidencia de infecciones nosocomiales, se clasificó a 250 pacientes según el tipo de infección (respiratoria, urinaria, herida quirúrgic",
+    "texto": "En un estudio sobre la incidencia de infecciones nosocomiales, se clasificó a 250 pacientes según el tipo de infección (respiratoria, urinaria, herida quirúrgica y la unidad hospitalaria (UCI, planta, ambulatorio). ¿Cuál es el test más apropiado para determinar si existe asociación entre estas dos variables categóricas? ",
     "opciones": [
-      "y la unidad hospitalaria (UCI, planta, ambulatorio). ¿Cuál es el test más apropiado para determinar si existe asociación entre estas dos variables categóricas? a) Test de chi cuadrado (χ²).",
+      "a) Test de chi cuadrado (χ²).",
       "Test t de Student.",
       "ANOVA.",
       "Test de Mann-Whitney."
